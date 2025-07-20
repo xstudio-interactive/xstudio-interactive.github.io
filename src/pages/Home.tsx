@@ -2,16 +2,17 @@ import { useState, useEffect } from 'react';
 import ProjectShowcase from '../components/hero/Hero';
 import GameCard from '../components/game-card/GameCard';
 import gamesData from '../data/games.json';
+import type { Game } from '../types';
 
-const Home = () => {
-  const [games, setGames] = useState([]);
-  const [loading, setLoading] = useState(true);
+const Home: React.FC = () => {
+  const [games, setGames] = useState<Game[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     try {
       // Ensure gamesData.games exists and is an array
       if (gamesData && gamesData.games && Array.isArray(gamesData.games)) {
-        setGames(gamesData.games);
+        setGames(gamesData.games as Game[]);
       } else {
         console.error('Invalid games data structure:', gamesData);
         setGames([]);
@@ -41,7 +42,7 @@ const Home = () => {
       <ProjectShowcase games={games} />
       
       {/* Games Grid */}
-      <section className="container pt-3xl pb-4xl">
+      <section className="container-wide pt-4xl pb-4xl">
         <div className="mb-2xl">
           <h2 className="heading-2 text-primary mb-md">Our Games</h2>
           <p className="body-large text-secondary">
@@ -49,7 +50,7 @@ const Home = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-xl">
+        <div className="grid grid-cols-2 gap-xl">
           {games.map((game) => (
             <GameCard key={game.id} game={game} />
           ))}

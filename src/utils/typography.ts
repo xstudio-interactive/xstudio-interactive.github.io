@@ -1,6 +1,8 @@
+import type { TypographyPreset } from '../types';
+
 // Typography utility functions
 
-export const fontFamilies = {
+export const fontFamilies: Record<string, string> = {
   system: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
   mono: '"SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas, "Courier New", monospace',
   display: '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
@@ -9,7 +11,7 @@ export const fontFamilies = {
   modern: '"Poppins", "Roboto", sans-serif'
 };
 
-export const typographyScales = {
+export const typographyScales: Record<string, Record<string, string>> = {
   // Systematic scale (1.25 ratio)
   systematic: {
     xs: '0.64rem',    // 10.24px
@@ -51,7 +53,7 @@ export const typographyScales = {
   }
 };
 
-export const fontWeights = {
+export const fontWeights: Record<string, number> = {
   light: 300,
   normal: 400,
   medium: 500,
@@ -60,13 +62,13 @@ export const fontWeights = {
   extrabold: 800
 };
 
-export const lineHeights = {
+export const lineHeights: Record<string, number> = {
   tight: 1.2,
   normal: 1.5,
   relaxed: 1.75
 };
 
-export const letterSpacing = {
+export const letterSpacing: Record<string, string> = {
   tight: '-0.025em',
   normal: '0',
   wide: '0.025em',
@@ -74,7 +76,7 @@ export const letterSpacing = {
 };
 
 // Function to apply typography theme
-export const applyTypographyTheme = (fontFamily, scale) => {
+export const applyTypographyTheme = (fontFamily: string, scale: string): void => {
   const root = document.documentElement;
   
   // Apply font family
@@ -91,7 +93,7 @@ export const applyTypographyTheme = (fontFamily, scale) => {
 };
 
 // Function to get current typography settings
-export const getCurrentTypography = () => {
+export const getCurrentTypography = (): { fontFamily: string; fontSize: string } => {
   const root = document.documentElement;
   return {
     fontFamily: root.style.getPropertyValue('--font-family-primary') || fontFamilies.system,
@@ -100,7 +102,7 @@ export const getCurrentTypography = () => {
 };
 
 // Function to reset typography to defaults
-export const resetTypography = () => {
+export const resetTypography = (): void => {
   const root = document.documentElement;
   root.style.removeProperty('--font-family-primary');
   Object.keys(typographyScales.systematic).forEach(size => {
@@ -109,31 +111,43 @@ export const resetTypography = () => {
 };
 
 // Predefined typography combinations
-export const typographyPresets = {
+export const typographyPresets: Record<string, TypographyPreset> = {
   'gaming-cyberpunk': {
+    name: 'Gaming Cyberpunk',
+    description: 'Futuristic gaming aesthetic',
     fontFamily: 'gaming',
     scale: 'systematic',
-    description: 'Futuristic gaming aesthetic'
+    baseSize: '1rem',
+    lineHeight: '1.5'
   },
   'retro-pixel': {
+    name: 'Retro Pixel',
+    description: 'Classic retro gaming feel',
     fontFamily: 'retro',
     scale: 'modular',
-    description: 'Classic retro gaming feel'
+    baseSize: '1rem',
+    lineHeight: '1.2'
   },
   'modern-clean': {
+    name: 'Modern Clean',
+    description: 'Clean, modern typography',
     fontFamily: 'modern',
     scale: 'golden',
-    description: 'Clean, modern typography'
+    baseSize: '1rem',
+    lineHeight: '1.75'
   },
   'system-default': {
+    name: 'System Default',
+    description: 'System default typography',
     fontFamily: 'system',
     scale: 'systematic',
-    description: 'System default typography'
+    baseSize: '1rem',
+    lineHeight: '1.5'
   }
 };
 
 // Function to apply typography preset
-export const applyTypographyPreset = (presetName) => {
+export const applyTypographyPreset = (presetName: string): TypographyPreset | null => {
   const preset = typographyPresets[presetName];
   if (preset) {
     applyTypographyTheme(preset.fontFamily, preset.scale);

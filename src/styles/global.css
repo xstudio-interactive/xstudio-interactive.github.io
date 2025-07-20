@@ -15,6 +15,8 @@
 html {
   font-size: 16px;
   scroll-behavior: smooth;
+  height: 100%;
+  width: 100%;
 }
 
 body {
@@ -25,6 +27,27 @@ body {
   background-color: var(--color-background);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#root {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.App {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
 }
 
 /* Typography Base */
@@ -58,13 +81,15 @@ a:hover {
 
 /* Layout Utilities */
 .container {
-  max-width: 1200px;
+  width: 100%;
+  max-width: min(1200px, 90vw);
   margin: 0 auto;
   padding: 0 var(--space-md);
 }
 
 .container-wide {
-  max-width: 1400px;
+  width: 100%;
+  max-width: min(1400px, 95vw);
   margin: 0 auto;
   padding: 0 var(--space-md);
 }
@@ -93,8 +118,10 @@ a:hover {
 .pt-xl { padding-top: var(--space-xl); }
 .pt-2xl { padding-top: var(--space-2xl); }
 .pt-3xl { padding-top: var(--space-3xl); }
+.pt-4xl { padding-top: var(--space-4xl); }
 
 .pb-xs { padding-bottom: var(--space-xs); }
+.pb-4xl { padding-bottom: var(--space-4xl); }
 .pb-sm { padding-bottom: var(--space-sm); }
 .pb-md { padding-bottom: var(--space-md); }
 .pb-lg { padding-bottom: var(--space-lg); }
@@ -181,9 +208,39 @@ a:hover {
 .transition-slow { transition: all var(--transition-slow); }
 
 /* Responsive Utilities */
+@media (min-width: 1400px) {
+  .container {
+    max-width: min(1600px, 85vw);
+    padding: 0 var(--space-xl);
+  }
+  
+  .container-wide {
+    max-width: min(1800px, 90vw);
+    padding: 0 var(--space-xl);
+  }
+}
+
+@media (max-width: 1200px) {
+  .container {
+    max-width: min(100%, 95vw);
+    padding: 0 var(--space-lg);
+  }
+  
+  .container-wide {
+    max-width: min(100%, 98vw);
+    padding: 0 var(--space-lg);
+  }
+}
+
 @media (max-width: 768px) {
   .container {
-    padding: 0 var(--space-sm);
+    max-width: min(100%, 98vw);
+    padding: 0 var(--space-md);
+  }
+  
+  .container-wide {
+    max-width: 100%;
+    padding: 0 var(--space-md);
   }
   
   .grid-cols-2 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
@@ -192,6 +249,16 @@ a:hover {
 }
 
 @media (max-width: 480px) {
+  .container {
+    max-width: 100%;
+    padding: 0 var(--space-sm);
+  }
+  
+  .container-wide {
+    max-width: 100%;
+    padding: 0 var(--space-sm);
+  }
+  
   .grid-cols-3 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
   .grid-cols-4 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
 }

@@ -1,13 +1,14 @@
 import { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+
 import { Play, ArrowRight, ChevronLeft, ChevronRight, ExternalLink, Download } from 'lucide-react';
+import type { HeroProps } from '../../types';
 import styles from './Hero.module.css';
 
-const ProjectShowcase = ({ games }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isTransitioning, setIsTransitioning] = useState(false);
-  const [progress, setProgress] = useState(0);
-  const carouselRef = useRef(null);
+const ProjectShowcase: React.FC<HeroProps> = ({ games }) => {
+  const [currentIndex, setCurrentIndex] = useState<number>(0);
+  const [isTransitioning, setIsTransitioning] = useState<boolean>(false);
+  const [progress, setProgress] = useState<number>(0);
+  const carouselRef = useRef<HTMLDivElement>(null);
 
   // Don't render if games array is empty or undefined
   if (!games || games.length === 0) {
@@ -17,7 +18,7 @@ const ProjectShowcase = ({ games }) => {
           <div className={styles.backgroundImage} />
           <div className={styles.backgroundOverlay}></div>
         </div>
-        <div className="container">
+        <div className="container-wide">
           <div className={styles.showcaseContent}>
             <div className={styles.projectInfo}>
               <h1 className={`${styles.projectTitle} heading-1 mb-lg`}>
@@ -33,7 +34,7 @@ const ProjectShowcase = ({ games }) => {
   const currentGame = games[currentIndex];
 
   // Fallback for missing featured media
-  const getBackgroundImage = (game) => {
+  const getBackgroundImage = (game: any): string => {
     if (game.featuredMedia && game.featuredMedia.url) {
       return `url(${game.featuredMedia.url})`;
     }
@@ -42,7 +43,7 @@ const ProjectShowcase = ({ games }) => {
   };
 
   // Get icon component based on icon name
-  const getIconComponent = (iconName) => {
+  const getIconComponent = (iconName: string): React.JSX.Element => {
     switch (iconName) {
       case 'play':
         return <Play size={20} />;
@@ -58,7 +59,7 @@ const ProjectShowcase = ({ games }) => {
   };
 
   // Get button CSS class based on type
-  const getButtonClass = (type) => {
+  const getButtonClass = (type: string): string => {
     switch (type) {
       case 'steam':
         return styles.steamButton;
@@ -76,17 +77,16 @@ const ProjectShowcase = ({ games }) => {
   };
 
   // Scroll selected thumbnail into view
-  const scrollToSelectedThumbnail = (index) => {
+  const scrollToSelectedThumbnail = (index: number): void => {
     if (carouselRef.current) {
       const container = carouselRef.current;
       const thumbnails = container.querySelectorAll(`.${styles.projectCard}`);
-      const selectedThumbnail = thumbnails[index];
+      const selectedThumbnail = thumbnails[index] as HTMLElement;
       
       if (selectedThumbnail) {
         const containerWidth = container.offsetWidth;
         const thumbnailWidth = selectedThumbnail.offsetWidth;
         const thumbnailLeft = selectedThumbnail.offsetLeft;
-        const containerScrollLeft = container.scrollLeft;
         
         // Calculate the center position
         const centerPosition = thumbnailLeft - (containerWidth / 2) + (thumbnailWidth / 2);
@@ -100,7 +100,7 @@ const ProjectShowcase = ({ games }) => {
     }
   };
 
-  const nextSlide = () => {
+  const nextSlide = (): void => {
     if (!isTransitioning) {
       setIsTransitioning(true);
       const newIndex = (currentIndex + 1) % games.length;
@@ -113,7 +113,7 @@ const ProjectShowcase = ({ games }) => {
     }
   };
 
-  const prevSlide = () => {
+  const prevSlide = (): void => {
     if (!isTransitioning) {
       setIsTransitioning(true);
       const newIndex = (currentIndex - 1 + games.length) % games.length;
@@ -164,7 +164,7 @@ const ProjectShowcase = ({ games }) => {
 
         {/* Project Banner */}
         <div className={styles.projectBanner}>
-          <div className="container">
+          <div className="container-wide">
             <div className={styles.bannerContent}>
               {/* 1. Status - Subtitle Size */}
               <div className={styles.projectStatus}>
@@ -216,7 +216,7 @@ const ProjectShowcase = ({ games }) => {
 
       {/* Carousel Navigation */}
       <div className={styles.carouselContainer}>
-        <div className="container">
+        <div className="container-wide">
           <div className={styles.carouselContent}>
             {/* Navigation Buttons - Left */}
             <button 
@@ -247,8 +247,12 @@ const ProjectShowcase = ({ games }) => {
                         className={styles.cardImage}
                         onError={(e) => {
                           // Fallback to gradient background if image fails to load
-                          e.target.style.display = 'none';
-                          e.target.parentElement.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+                          const target = e.target as HTMLImageElement;
+                          target.style.display = 'none';
+                          const parent = target.parentElement as HTMLElement;
+                          if (parent) {
+                            parent.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+                          }
                         }}
                       />
                     ) : (

@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
+import type { GameCardProps } from '../../types';
 import styles from './GameCard.module.css';
 
-const GameCard = ({ game }) => {
+const GameCard: React.FC<GameCardProps> = ({ game }) => {
   return (
     <Link to={`/game/${game.id}`} className={styles.gameCard}>
       <div className={styles.cardImage}>
@@ -12,8 +13,12 @@ const GameCard = ({ game }) => {
             className={styles.gameImage}
             onError={(e) => {
               // Fallback to gradient background if image fails to load
-              e.target.style.display = 'none';
-              e.target.parentElement.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+              const target = e.target as HTMLImageElement;
+              target.style.display = 'none';
+              const parent = target.parentElement as HTMLElement;
+              if (parent) {
+                parent.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+              }
             }}
           />
         ) : (

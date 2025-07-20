@@ -2,10 +2,12 @@
 .projectShowcase {
   position: relative;
   width: 100%;
-  aspect-ratio: 16/9;
+  min-height: 100vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  padding-top: 0; /* Remove padding since header is now fixed */
 }
 
 .mainContent {
@@ -13,6 +15,7 @@
   flex: 1;
   width: 100%;
   height: 100%;
+  min-height: 0;
 }
 
 /* Background Container */
@@ -24,6 +27,7 @@
   bottom: 0;
   width: 100%;
   height: 100%;
+  z-index: 1;
 }
 
 .backgroundImage {
@@ -46,8 +50,6 @@
   opacity: 0.8;
 }
 
-
-
 /* Project Banner */
 .projectBanner {
   position: absolute;
@@ -62,9 +64,10 @@
 }
 
 .bannerContent {
-  max-width: 600px;
+  max-width: min(600px, 80vw);
   color: white;
   width: 100%;
+  padding: 0 var(--space-md);
 }
 
 /* 1. Status - Subtitle Size */
@@ -113,7 +116,7 @@
   color: white;
   margin-bottom: var(--space-xs);
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-  font-size: var(--font-size-xl);
+  font-size: clamp(var(--font-size-lg), 4vw, var(--font-size-2xl));
   font-weight: var(--font-weight-bold);
   line-height: 1.1;
   white-space: nowrap;
@@ -127,7 +130,7 @@
   margin-bottom: var(--space-sm);
   line-height: 1.3;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-  font-size: var(--font-size-sm);
+  font-size: clamp(var(--font-size-xs), 2.5vw, var(--font-size-md));
   font-weight: var(--font-weight-normal);
 }
 
@@ -149,7 +152,7 @@
   display: inline-flex;
   align-items: center;
   gap: var(--space-xs);
-  font-size: var(--font-size-sm);
+  font-size: clamp(var(--font-size-xs), 2vw, var(--font-size-sm));
 }
 
 .navigationButton:hover {
@@ -228,6 +231,8 @@
     transparent 100%
   );
   margin-top: auto;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 .carouselContent {
@@ -236,6 +241,8 @@
   align-items: center;
   justify-content: center;
   gap: var(--space-lg);
+  width: 100%;
+  overflow-x: hidden;
 }
 
 /* Navigation Buttons */
@@ -244,8 +251,8 @@
   color: white;
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 50%;
-  width: 48px;
-  height: 48px;
+  width: clamp(32px, 6vw, 48px);
+  height: clamp(32px, 6vw, 48px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -280,7 +287,10 @@
   -ms-overflow-style: none;
   order: 2;
   flex: 1;
-  max-width: calc(100% - 120px); /* Account for navigation buttons */
+  max-width: calc(100% - clamp(80px, 12vw, 120px)); /* Account for navigation buttons */
+  width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden; /* Hide horizontal scrollbar */
 }
 
 .projectCards::-webkit-scrollbar {
@@ -288,7 +298,7 @@
 }
 
 .projectCard {
-  flex: 0 0 158px; /* Reduced from 210px to 158px (3/4 of current size) */
+  flex: 0 0 clamp(100px, 20vw, 158px); /* Responsive card width */
   background: rgba(255, 255, 255, 0.05);
   border-radius: var(--radius-lg);
   overflow: hidden;
@@ -300,6 +310,7 @@
   position: relative;
   aspect-ratio: 16/9;
   filter: grayscale(100%); /* Make all thumbnails grayscale by default */
+  min-width: 0; /* Allow flex items to shrink below their content size */
 }
 
 .projectCard:hover {
@@ -390,9 +401,21 @@
 }
 
 /* Responsive Design */
+@media (min-width: 1400px) {
+  .projectShowcase {
+    height: 100vh;
+    max-height: 100vh;
+  }
+  
+  .bannerContent {
+    max-width: min(800px, 70vw);
+  }
+}
+
 @media (max-width: 768px) {
   .projectShowcase {
-    aspect-ratio: 4/3; /* Slightly taller on mobile for better content visibility */
+    height: 100vh;
+    min-height: 100vh;
   }
   
   .projectBanner {
@@ -402,14 +425,15 @@
   .bannerContent {
     max-width: 100%;
     text-align: center;
+    padding: 0 var(--space-sm);
   }
   
   .projectTitle {
-    font-size: var(--font-size-lg);
+    font-size: clamp(var(--font-size-md), 5vw, var(--font-size-lg));
   }
   
   .projectDescription {
-    font-size: var(--font-size-xs);
+    font-size: clamp(var(--font-size-xs), 3vw, var(--font-size-sm));
   }
   
   .projectActions {
@@ -419,7 +443,7 @@
   
   .navigationButton {
     padding: var(--space-xs) var(--space-md);
-    font-size: var(--font-size-xs);
+    font-size: clamp(var(--font-size-xs), 2.5vw, var(--font-size-sm));
   }
   
   .carouselContainer {
@@ -428,39 +452,48 @@
   
   .carouselContent {
     gap: var(--space-md);
+    width: 100%;
+    max-width: 100%;
   }
   
   .projectCards {
-    padding: 0 var(--space-md);
-    gap: var(--space-md);
-    max-width: calc(100% - 100px);
+    padding: 0 var(--space-sm);
+    gap: var(--space-sm);
+    max-width: calc(100% - clamp(60px, 10vw, 80px));
+    width: 100%;
   }
   
   .projectCard {
-    flex: 0 0 135px; /* Reduced from 180px to 135px (3/4 of current size) */
+    flex: 0 0 clamp(80px, 15vw, 120px);
+    min-width: 0;
   }
   
   .navButton {
-    width: 40px;
-    height: 40px;
+    width: clamp(28px, 5vw, 36px);
+    height: clamp(28px, 5vw, 36px);
   }
 }
 
 @media (max-width: 480px) {
   .projectShowcase {
-    aspect-ratio: 3/2; /* Even taller on small mobile for better usability */
+    height: 100vh;
+    min-height: 100vh;
   }
   
   .projectBanner {
     padding: var(--space-sm) 0 var(--space-md) 0;
   }
   
+  .bannerContent {
+    padding: 0 var(--space-xs);
+  }
+  
   .projectTitle {
-    font-size: var(--font-size-md);
+    font-size: clamp(var(--font-size-sm), 6vw, var(--font-size-md));
   }
   
   .projectDescription {
-    font-size: var(--font-size-xs);
+    font-size: clamp(var(--font-size-xs), 3.5vw, var(--font-size-sm));
   }
   
   .projectActions {
@@ -472,23 +505,31 @@
     width: 100%;
     justify-content: center;
     padding: var(--space-sm) var(--space-md);
+    font-size: clamp(var(--font-size-xs), 3vw, var(--font-size-sm));
   }
   
   .projectCard {
-    flex: 0 0 113px; /* Reduced from 150px to 113px (3/4 of current size) */
+    flex: 0 0 clamp(70px, 12vw, 100px);
+    min-width: 0;
   }
   
   .projectCards {
-    padding: 0 var(--space-sm);
-    max-width: calc(100% - 80px);
+    padding: 0 var(--space-xs);
+    gap: var(--space-xs);
+    max-width: calc(100% - clamp(50px, 8vw, 72px));
+    width: 100%;
   }
   
   .navButton {
-    width: 36px;
-    height: 36px;
+    width: clamp(24px, 4vw, 32px);
+    height: clamp(24px, 4vw, 32px);
   }
   
   .carouselContainer {
     padding: var(--space-lg) 0 var(--space-md) 0;
+  }
+  
+  .carouselContent {
+    gap: var(--space-sm);
   }
 } 

@@ -1,6 +1,8 @@
+import type { ColorPalette, ColorPaletteWithId, ColorName, ColorContrastResult, ComplementaryColors, PaletteCombination } from '../types';
+
 // Color palette utility functions
 
-export const colorPalettes = {
+export const colorPalettes: Record<string, ColorPalette> = {
   cyberpunk: {
     name: 'Cyberpunk',
     description: 'Neon cyberpunk with high contrast',
@@ -89,7 +91,7 @@ export const colorPalettes = {
 };
 
 // Function to apply color palette
-export const applyColorPalette = (paletteName) => {
+export const applyColorPalette = (paletteName: string): boolean => {
   const palette = colorPalettes[paletteName];
   if (!palette) return false;
 
@@ -158,14 +160,14 @@ export const applyColorPalette = (paletteName) => {
 };
 
 // Function to get current color palette
-export const getCurrentColorPalette = () => {
+export const getCurrentColorPalette = (): ColorPalette => {
   const root = document.documentElement;
   const currentTheme = root.getAttribute('data-theme') || 'cyberpunk';
   return colorPalettes[currentTheme] || colorPalettes.cyberpunk;
 };
 
 // Function to reset color palette to default
-export const resetColorPalette = () => {
+export const resetColorPalette = (): void => {
   const root = document.documentElement;
   root.removeAttribute('data-theme');
   
@@ -176,8 +178,8 @@ export const resetColorPalette = () => {
 };
 
 // Function to create custom color palette
-export const createCustomPalette = (name, colors) => {
-  const customPalette = {
+export const createCustomPalette = (name: string, colors: Partial<ColorPalette['colors']>): ColorPalette => {
+  const customPalette: ColorPalette = {
     name,
     description: 'Custom color palette',
     colors: {
@@ -197,7 +199,7 @@ export const createCustomPalette = (name, colors) => {
 };
 
 // Function to get all available palettes
-export const getAvailablePalettes = () => {
+export const getAvailablePalettes = (): ColorPaletteWithId[] => {
   return Object.keys(colorPalettes).map(key => ({
     id: key,
     ...colorPalettes[key]
@@ -205,8 +207,8 @@ export const getAvailablePalettes = () => {
 };
 
 // Function to validate color palette
-export const validateColorPalette = (colors) => {
-  const requiredColors = ['primary', 'secondary', 'accent', 'background', 'surface', 'text'];
+export const validateColorPalette = (colors: Partial<ColorPalette['colors']>): boolean => {
+  const requiredColors: ColorName[] = ['primary', 'secondary', 'accent', 'background', 'surface', 'text'];
   const missingColors = requiredColors.filter(color => !colors[color]);
   
   if (missingColors.length > 0) {
@@ -217,7 +219,7 @@ export const validateColorPalette = (colors) => {
 };
 
 // Function to generate complementary colors
-export const generateComplementaryColors = (baseColor) => {
+export const generateComplementaryColors = (baseColor: string): ComplementaryColors => {
   // Simple complementary color generation
   const hex = baseColor.replace('#', '');
   const r = parseInt(hex.substr(0, 2), 16);
@@ -238,8 +240,8 @@ export const generateComplementaryColors = (baseColor) => {
 };
 
 // Function to check color contrast for accessibility
-export const getColorContrast = (color1, color2) => {
-  const getLuminance = (color) => {
+export const getColorContrast = (color1: string, color2: string): number => {
+  const getLuminance = (color: string): number => {
     const hex = color.replace('#', '');
     const r = parseInt(hex.substr(0, 2), 16) / 255;
     const g = parseInt(hex.substr(2, 2), 16) / 255;
@@ -263,7 +265,7 @@ export const getColorContrast = (color1, color2) => {
 };
 
 // Function to check if color combination meets accessibility standards
-export const isAccessible = (color1, color2, level = 'AA') => {
+export const isAccessible = (color1: string, color2: string, level: 'AA' | 'AAA' = 'AA'): ColorContrastResult => {
   const contrast = getColorContrast(color1, color2);
   const thresholds = {
     'AA': { normal: 4.5, large: 3 },
@@ -278,7 +280,7 @@ export const isAccessible = (color1, color2, level = 'AA') => {
 };
 
 // Predefined palette combinations
-export const paletteCombinations = {
+export const paletteCombinations: Record<string, PaletteCombination> = {
   'cyberpunk-gaming': {
     palette: 'cyberpunk',
     typography: 'gaming-cyberpunk',

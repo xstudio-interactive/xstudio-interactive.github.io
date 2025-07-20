@@ -1,15 +1,16 @@
 import { useParams, Link } from 'react-router-dom';
-import { ArrowLeft, Star, ExternalLink } from 'lucide-react';
+import { ArrowLeft, ExternalLink } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import gamesData from '../data/games.json';
+import type { Game } from '../types';
 
-const GameDetail = () => {
-  const { id } = useParams();
-  const [game, setGame] = useState(null);
+const GameDetail: React.FC = () => {
+  const { id } = useParams<{ id: string }>();
+  const [game, setGame] = useState<Game | null>(null);
 
   useEffect(() => {
-    const foundGame = gamesData.games.find(g => g.id === id);
-    setGame(foundGame);
+    const foundGame = gamesData.games.find(g => g.id === id) as Game | undefined;
+    setGame(foundGame || null);
   }, [id]);
 
   if (!game) {
@@ -29,26 +30,7 @@ const GameDetail = () => {
     );
   }
 
-  const renderStars = (rating) => {
-    const stars = [];
-    const fullStars = Math.floor(rating);
-    const hasHalfStar = rating % 1 !== 0;
-    
-    for (let i = 0; i < fullStars; i++) {
-      stars.push(<Star key={i} size={20} className="text-accent fill-accent" />);
-    }
-    
-    if (hasHalfStar) {
-      stars.push(<Star key="half" size={20} className="text-accent fill-accent opacity-70" />);
-    }
-    
-    const emptyStars = 5 - Math.ceil(rating);
-    for (let i = 0; i < emptyStars; i++) {
-      stars.push(<Star key={`empty-${i}`} size={20} className="text-border" />);
-    }
-    
-    return stars;
-  };
+
 
   return (
     <div className="container pt-3xl pb-4xl">
@@ -61,31 +43,26 @@ const GameDetail = () => {
       {/* Game Header */}
       <div className="mb-3xl">
         <h1 className="heading-1 text-primary mb-md">{game.title}</h1>
-        <p className="body-large text-secondary mb-lg">{game.description}</p>
+        <p className="body-large text-secondary mb-lg">{game.longDescription}</p>
         
         <div className="flex items-center gap-lg mb-xl">
-          <div className="flex items-center gap-sm">
-            {renderStars(game.rating)}
-            <span className="body text-muted">({game.rating})</span>
-          </div>
-          <span className="body text-muted">•</span>
           <span className="body text-primary">{game.genre}</span>
           <span className="body text-muted">•</span>
-          <span className="body text-primary">{game.playTime}</span>
+          <span className="body text-primary">{game.status}</span>
         </div>
 
         {/* Action Buttons */}
         <div className="flex items-center gap-md">
-          {Object.entries(game.links).map(([platform, url]) => (
+          {game.navigationButtons.map((button) => (
             <a
-              key={platform}
-              href={url}
+              key={button.text}
+              href={button.url}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-sm px-lg py-md bg-primary text-background rounded-lg font-semibold transition-all hover:scale-105"
             >
               <ExternalLink size={16} />
-              {platform.charAt(0).toUpperCase() + platform.slice(1)}
+              {button.text}
             </a>
           ))}
         </div>
@@ -97,16 +74,22 @@ const GameDetail = () => {
         <div className="lg:col-span-2">
           <div className="bg-surface border border-border rounded-xl p-xl mb-xl">
             <h2 className="heading-3 text-primary mb-lg">About This Game</h2>
-            <p className="body text-secondary mb-lg">{game.description}</p>
+            <p className="body text-secondary mb-lg">{game.longDescription}</p>
             
             <h3 className="heading-4 text-primary mb-md">Key Features</h3>
             <ul className="space-y-sm">
-              {game.features.map((feature, index) => (
-                <li key={index} className="flex items-center gap-sm">
-                  <div className="w-2 h-2 bg-primary rounded-full"></div>
-                  <span className="body text-secondary">{feature}</span>
-                </li>
-              ))}
+              <li className="flex items-center gap-sm">
+                <div className="w-2 h-2 bg-primary rounded-full"></div>
+                <span className="body text-secondary">Immersive gameplay experience</span>
+              </li>
+              <li className="flex items-center gap-sm">
+                <div className="w-2 h-2 bg-primary rounded-full"></div>
+                <span className="body text-secondary">Stunning visuals and effects</span>
+              </li>
+              <li className="flex items-center gap-sm">
+                <div className="w-2 h-2 bg-primary rounded-full"></div>
+                <span className="body text-secondary">Engaging storyline</span>
+              </li>
             </ul>
           </div>
         </div>
@@ -128,12 +111,8 @@ const GameDetail = () => {
                 <span className="body-small text-primary">{game.genre}</span>
               </div>
               <div className="flex justify-between">
-                <span className="body-small text-muted">Play Time</span>
-                <span className="body-small text-primary">{game.playTime}</span>
-              </div>
-              <div className="flex justify-between">
-                <span className="body-small text-muted">Rating</span>
-                <span className="body-small text-primary">{game.rating}/5</span>
+                <span className="body-small text-muted">Status</span>
+                <span className="body-small text-primary">{game.status}</span>
               </div>
             </div>
           </div>
@@ -148,21 +127,6 @@ const GameDetail = () => {
                   className="px-sm py-xs bg-surface-light border border-border rounded text-sm text-secondary"
                 >
                   {platform}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          {/* Tags */}
-          <div className="bg-surface border border-border rounded-xl p-lg">
-            <h3 className="heading-4 text-primary mb-md">Tags</h3>
-            <div className="flex flex-wrap gap-sm">
-              {game.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="px-sm py-xs bg-surface-light border border-border rounded text-sm text-secondary lowercase"
-                >
-                  {tag}
                 </span>
               ))}
             </div>

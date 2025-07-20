@@ -2,16 +2,17 @@ import { useState } from 'react';
 import Header from './Header';
 import { getAvailablePalettes } from '../../utils/colorPalettes';
 import { typographyPresets } from '../../utils/typography';
+import type { LayoutProps } from '../../types';
 import styles from './Layout.module.css';
 
-const Layout = ({ 
+const Layout: React.FC<LayoutProps> = ({ 
   children, 
   currentTheme, 
   currentTypography, 
   onThemeChange, 
   onTypographyChange 
 }) => {
-  const [showThemePanel, setShowThemePanel] = useState(false);
+  const [showThemePanel, setShowThemePanel] = useState<boolean>(false);
   const availablePalettes = getAvailablePalettes();
   const availableTypography = Object.keys(typographyPresets);
 
@@ -47,7 +48,7 @@ const Layout = ({
                     '--theme-primary': palette.colors.primary,
                     '--theme-secondary': palette.colors.secondary,
                     '--theme-accent': palette.colors.accent
-                  }}
+                  } as React.CSSProperties}
                 >
                   <div className={styles.themePreview}>
                     <div 

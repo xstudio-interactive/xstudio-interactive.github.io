@@ -1,10 +1,9 @@
 import { Link, useLocation } from 'react-router-dom';
-import { Palette, Type, X } from 'lucide-react';
+import { Palette, X } from 'lucide-react';
+import type { HeaderProps } from '../../types';
 import styles from './Header.module.css';
 
-const Header = ({ 
-  currentTheme, 
-  currentTypography, 
+const Header: React.FC<HeaderProps> = ({ 
   showThemePanel, 
   setShowThemePanel 
 }) => {
