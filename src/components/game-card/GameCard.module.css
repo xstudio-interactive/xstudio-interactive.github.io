@@ -1,0 +1,174 @@
+.gameCard {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  transition: all var(--transition-normal);
+  position: relative;
+  aspect-ratio: 16/9;
+  display: flex;
+  flex-direction: column;
+}
+
+.gameCard:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-xl), var(--shadow-primary-light);
+  border-color: var(--color-primary);
+}
+
+.gameCard:hover .cardContent {
+  transform: translateY(0);
+}
+
+.gameCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-secondary), var(--color-accent));
+  transform: scaleX(0);
+  transition: transform var(--transition-normal);
+}
+
+.gameCard:hover::before {
+  transform: scaleX(1);
+}
+
+.cardImage {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--color-surface-light), var(--color-surface));
+}
+
+.gameImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-normal);
+}
+
+.gameCard:hover .gameImage {
+  transform: scale(1.05);
+}
+
+.cardOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 0, 0, 0.3) 50%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
+  pointer-events: none;
+}
+
+.imagePlaceholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(45deg, var(--color-surface-light), var(--color-surface));
+  position: relative;
+}
+
+.imagePlaceholder::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(var(--color-primary-rgb, 0, 255, 136), 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(var(--color-secondary-rgb, 255, 0, 128), 0.1) 0%, transparent 50%);
+}
+
+
+
+
+
+.cardContent {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: var(--space-lg);
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  color: var(--color-background);
+  transform: translateY(100%);
+  transition: transform var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+}
+
+.cardHeader {
+  margin-bottom: var(--space-md);
+}
+
+.cardMeta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+  margin-bottom: var(--space-md);
+  flex: 1;
+}
+
+.metaItem {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.platforms {
+  display: flex;
+  gap: var(--space-xs);
+  flex-wrap: wrap;
+}
+
+.platform {
+  padding: 2px var(--space-xs);
+  background-color: var(--color-surface-light);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+}
+
+.platformMore {
+  padding: 2px var(--space-xs);
+  background-color: var(--color-primary);
+  color: var(--color-background);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .cardContent {
+    padding: var(--space-md);
+  }
+  
+  .cardMeta {
+    grid-template-columns: 1fr;
+    gap: var(--space-sm);
+  }
+  
+  .gameCard:hover {
+    transform: translateY(-4px);
+  }
+}
+
+@media (max-width: 480px) {
+  .cardContent {
+    padding: var(--space-sm);
+  }
+} 

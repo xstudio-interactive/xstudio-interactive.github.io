@@ -1,0 +1,494 @@
+/* Project Showcase Styles */
+.projectShowcase {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.mainContent {
+  position: relative;
+  flex: 1;
+  width: 100%;
+  height: 100%;
+}
+
+/* Background Container */
+.backgroundContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.backgroundImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: opacity 0.3s ease-in-out;
+  /* Fallback for when no image is loaded */
+  background-color: #667eea;
+}
+
+.backgroundImage.transitioning {
+  opacity: 0.8;
+}
+
+
+
+/* Project Banner */
+.projectBanner {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.6);
+  padding: var(--space-xl) 0 var(--space-2xl) 0;
+  display: flex;
+  align-items: flex-end;
+}
+
+.bannerContent {
+  max-width: 600px;
+  color: white;
+  width: 100%;
+}
+
+/* 1. Status - Subtitle Size */
+.projectStatus {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-xs);
+  position: relative;
+  z-index: 10;
+}
+
+.status {
+  background: var(--color-primary);
+  color: var(--color-background) !important;
+  padding: var(--space-xs) var(--space-md);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: 0.25px;
+  border: 1px solid var(--color-surface-light);
+  white-space: nowrap;
+  display: inline-block;
+  width: auto;
+  max-width: none;
+  overflow: visible;
+  text-shadow: none;
+  z-index: 10;
+  position: relative;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  color: var(--color-warning);
+  font-weight: 600;
+  font-size: var(--font-size-xs);
+}
+
+/* 2. Title - Main Title Size */
+.projectTitle {
+  color: white;
+  margin-bottom: var(--space-xs);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  line-height: 1.1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 3. Description - Body Text Size */
+.projectDescription {
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: var(--space-sm);
+  line-height: 1.3;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-normal);
+}
+
+/* 4. Navigation Buttons */
+.projectActions {
+  display: flex;
+  gap: var(--space-xs);
+  flex-wrap: wrap;
+}
+
+.navigationButton {
+  padding: var(--space-xs) var(--space-md);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: var(--font-size-sm);
+}
+
+.navigationButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3), var(--shadow-primary-light);
+}
+
+/* Steam Button */
+.steamButton {
+  background: linear-gradient(135deg, #1b2838 0%, #2a475e 100%);
+  color: white;
+  border: 1px solid #66c0f4;
+}
+
+.steamButton:hover {
+  background: linear-gradient(135deg, #2a475e 0%, #1b2838 100%);
+  border-color: #66c0f4;
+}
+
+/* App Store Button */
+.appStoreButton {
+  background: linear-gradient(135deg, #007aff 0%, #5856d6 100%);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.appStoreButton:hover {
+  background: linear-gradient(135deg, #5856d6 0%, #007aff 100%);
+}
+
+/* Google Play Button */
+.playStoreButton {
+  background: linear-gradient(135deg, #01875f 0%, #00c851 100%);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.playStoreButton:hover {
+  background: linear-gradient(135deg, #00c851 0%, #01875f 100%);
+}
+
+/* Custom Button */
+.customButton {
+  background: var(--color-primary);
+  color: white;
+  border: 1px solid var(--color-primary);
+}
+
+.customButton:hover {
+  background: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
+}
+
+/* Learn More Button */
+.learnButton {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.learnButton:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Carousel Container */
+.carouselContainer {
+  position: relative;
+  z-index: 3;
+  padding: var(--space-2xl) 0 var(--space-xl) 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.9) 0%,
+    rgba(0, 0, 0, 0.7) 50%,
+    transparent 100%
+  );
+  margin-top: auto;
+}
+
+.carouselContent {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-lg);
+}
+
+/* Navigation Buttons */
+.navButton {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 10;
+  flex-shrink: 0;
+}
+
+.navButton:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
+.prevButton {
+  order: 1;
+}
+
+.nextButton {
+  order: 3;
+}
+
+/* Project Cards */
+.projectCards {
+  display: flex;
+  gap: var(--space-lg);
+  padding: 0 var(--space-lg);
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  order: 2;
+  flex: 1;
+  max-width: calc(100% - 120px); /* Account for navigation buttons */
+}
+
+.projectCards::-webkit-scrollbar {
+  display: none;
+}
+
+.projectCard {
+  flex: 0 0 158px; /* Reduced from 210px to 158px (3/4 of current size) */
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  position: relative;
+  aspect-ratio: 16/9;
+  filter: grayscale(100%); /* Make all thumbnails grayscale by default */
+}
+
+.projectCard:hover {
+  transform: none; /* Remove scale and move up animation */
+  border-color: var(--color-primary);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), var(--shadow-primary-light);
+  filter: grayscale(0%); /* Show full color on hover */
+}
+
+.projectCard.active {
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-primary);
+  filter: grayscale(0%); /* Active card shows full color */
+}
+
+.cardImage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.cardImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: filter 0.3s ease; /* Only transition filter for color changes */
+}
+
+.projectCard:hover .cardImage img {
+  transform: none; /* Remove scale animation */
+}
+
+.cardOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 0, 0, 0.3) 100%
+  );
+}
+
+/* Progress Bar */
+.progressBar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 6px; /* Increased from 3px to 6px for better visibility */
+  background: rgba(255, 255, 255, 0.3); /* Made background more visible */
+  overflow: hidden;
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg); /* Match card border radius */
+  animation: progressPulse 2s ease-in-out infinite; /* Subtle pulse animation */
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-primary-light) 100%); /* Fixed color variables */
+  transition: width 0.1s linear;
+  box-shadow: var(--shadow-primary-light); /* Theme-aware glow effect */
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  position: relative;
+}
+
+.progressFill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.3) 50%, transparent 100%);
+  animation: progressShimmer 1.5s ease-in-out infinite;
+}
+
+@keyframes progressPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes progressShimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .projectShowcase {
+    aspect-ratio: 4/3; /* Slightly taller on mobile for better content visibility */
+  }
+  
+  .projectBanner {
+    padding: var(--space-md) 0 var(--space-lg) 0;
+  }
+  
+  .bannerContent {
+    max-width: 100%;
+    text-align: center;
+  }
+  
+  .projectTitle {
+    font-size: var(--font-size-lg);
+  }
+  
+  .projectDescription {
+    font-size: var(--font-size-xs);
+  }
+  
+  .projectActions {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .navigationButton {
+    padding: var(--space-xs) var(--space-md);
+    font-size: var(--font-size-xs);
+  }
+  
+  .carouselContainer {
+    padding: var(--space-xl) 0 var(--space-lg) 0;
+  }
+  
+  .carouselContent {
+    gap: var(--space-md);
+  }
+  
+  .projectCards {
+    padding: 0 var(--space-md);
+    gap: var(--space-md);
+    max-width: calc(100% - 100px);
+  }
+  
+  .projectCard {
+    flex: 0 0 135px; /* Reduced from 180px to 135px (3/4 of current size) */
+  }
+  
+  .navButton {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .projectShowcase {
+    aspect-ratio: 3/2; /* Even taller on small mobile for better usability */
+  }
+  
+  .projectBanner {
+    padding: var(--space-sm) 0 var(--space-md) 0;
+  }
+  
+  .projectTitle {
+    font-size: var(--font-size-md);
+  }
+  
+  .projectDescription {
+    font-size: var(--font-size-xs);
+  }
+  
+  .projectActions {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .navigationButton {
+    width: 100%;
+    justify-content: center;
+    padding: var(--space-sm) var(--space-md);
+  }
+  
+  .projectCard {
+    flex: 0 0 113px; /* Reduced from 150px to 113px (3/4 of current size) */
+  }
+  
+  .projectCards {
+    padding: 0 var(--space-sm);
+    max-width: calc(100% - 80px);
+  }
+  
+  .navButton {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .carouselContainer {
+    padding: var(--space-lg) 0 var(--space-md) 0;
+  }
+} 

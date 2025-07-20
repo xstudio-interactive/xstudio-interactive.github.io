@@ -1,0 +1,225 @@
+{
+  "games": [
+    {
+      "id": "cyber-quest",
+      "title": "Cyber Quest 2077",
+      "shortDescription": "Immersive cyberpunk RPG in a neon dystopia",
+      "longDescription": "Dive into a neon-lit future where corporations rule and hackers fight for freedom. Experience deep storytelling, stunning visuals, and immersive gameplay in this groundbreaking RPG.",
+      "genre": "RPG",
+      "status": "Full Release Available on Steam",
+      "platforms": ["PC", "PlayStation 5", "Xbox Series X"],
+      "featuredMedia": {
+        "type": "image",
+        "url": "/images/brainrot.png",
+        "alt": "Cyber Quest 2077 - Neon cityscape with flying cars and holographic advertisements"
+      },
+      "screenshots": [
+        "/images/brainrot.png",
+        "/images/scene1.jpeg",
+        "/images/scene2.jpg"
+      ],
+
+      "releaseDate": "2024-03-15",
+      "navigationButtons": [
+        {
+          "text": "Play on Steam",
+          "url": "https://store.steampowered.com/app/example/cyber-quest-2077",
+          "type": "steam",
+          "icon": "external-link"
+        },
+        {
+          "text": "Pre-order Now",
+          "url": "/preorder/cyber-quest",
+          "type": "custom",
+          "icon": "play"
+        }
+      ]
+    },
+    {
+      "id": "space-explorer",
+      "title": "Space Explorer: Beyond the Stars",
+      "shortDescription": "Epic space exploration with procedural galaxies",
+      "longDescription": "Embark on an infinite journey through procedurally generated galaxies. Discover new worlds, trade with alien civilizations, and uncover the mysteries of the cosmos.",
+      "genre": "Space Sim",
+      "status": "Early Access on Steam",
+      "platforms": ["PC", "Mac", "Linux"],
+      "featuredMedia": {
+        "type": "image",
+        "url": "/images/scene2.jpg",
+        "alt": "Space Explorer - Vast galaxy with colorful nebulas and distant stars"
+      },
+      "screenshots": [
+        "/images/scene2.jpg",
+        "/images/scene3.jpg",
+        "/images/scene4.jpg"
+      ],
+
+      "releaseDate": "2024-01-20",
+      "navigationButtons": [
+        {
+          "text": "Play on Steam",
+          "url": "https://store.steampowered.com/app/example/space-explorer",
+          "type": "steam",
+          "icon": "external-link"
+        },
+        {
+          "text": "Learn More",
+          "url": "/game/space-explorer",
+          "type": "learn",
+          "icon": "arrow-right"
+        }
+      ]
+    },
+    {
+      "id": "pixel-adventure",
+      "title": "Pixel Adventure: The Lost Kingdom",
+      "shortDescription": "Charming retro platformer with modern mechanics",
+      "longDescription": "A love letter to classic platformers with modern twists. Beautiful pixel art, tight controls, and an enchanting story await in this magical adventure.",
+      "genre": "Platformer",
+      "status": "Available on App Store & Google Play",
+      "platforms": ["PC", "Nintendo Switch", "Mobile"],
+      "featuredMedia": {
+        "type": "image",
+        "url": "/images/scene3.jpg",
+        "alt": "Pixel Adventure - Colorful pixel art forest with magical creatures"
+      },
+      "screenshots": [
+        "/images/scene3.jpg",
+        "/images/scene4.jpg",
+        "/images/scene5.jpg"
+      ],
+
+      "releaseDate": "2024-02-10",
+      "navigationButtons": [
+        {
+          "text": "App Store",
+          "url": "https://apps.apple.com/app/pixel-adventure/id123456789",
+          "type": "appstore",
+          "icon": "download"
+        },
+        {
+          "text": "Google Play",
+          "url": "https://play.google.com/store/apps/details?id=com.xstudio.pixeladventure",
+          "type": "playstore",
+          "icon": "download"
+        }
+      ]
+    },
+    {
+      "id": "tower-defense",
+      "title": "Tower Defense: Strategic Warfare",
+      "shortDescription": "Strategic tower defense with deep upgrade systems",
+      "longDescription": "Master the art of strategic defense with hundreds of tower combinations, unique enemy types, and challenging campaign missions.",
+      "genre": "Strategy",
+      "status": "Wishlist on Steam",
+      "platforms": ["PC", "Mobile"],
+      "featuredMedia": {
+        "type": "image",
+        "url": "/images/scene4.jpg",
+        "alt": "Tower Defense - Strategic battlefield with various towers and enemy waves"
+      },
+      "screenshots": [
+        "/images/scene4.jpg",
+        "/images/scene5.jpg",
+        "/images/scene6.jpg"
+      ],
+
+      "releaseDate": "2023-11-30",
+      "navigationButtons": [
+        {
+          "text": "Play on Steam",
+          "url": "https://store.steampowered.com/app/example/tower-defense",
+          "type": "steam",
+          "icon": "external-link"
+        },
+        {
+          "text": "App Store",
+          "url": "https://apps.apple.com/app/tower-defense/id987654321",
+          "type": "appstore",
+          "icon": "download"
+        },
+        {
+          "text": "Google Play",
+          "url": "https://play.google.com/store/apps/details?id=com.xstudio.towerdefense",
+          "type": "playstore",
+          "icon": "download"
+        }
+      ]
+    },
+    {
+      "id": "racing-future",
+      "title": "Racing Future: Velocity X",
+      "shortDescription": "High-speed futuristic racing with gravity tracks",
+      "longDescription": "Experience racing like never before with anti-gravity vehicles, impossible tracks, and heart-pounding speed. The future of racing is here.",
+      "genre": "Racing",
+      "status": "Beta Testing - Join Now",
+      "platforms": ["PC", "PlayStation 5", "Xbox Series X"],
+      "featuredMedia": {
+        "type": "image",
+        "url": "/images/scene5.jpg",
+        "alt": "Racing Future - Futuristic race track with glowing vehicles and neon lights"
+      },
+      "screenshots": [
+        "/images/scene5.jpg",
+        "/images/scene6.jpg",
+        "/images/scene1.jpeg"
+      ],
+
+      "releaseDate": "2024-04-05",
+      "navigationButtons": [
+        {
+          "text": "Play on Steam",
+          "url": "https://store.steampowered.com/app/example/racing-future",
+          "type": "steam",
+          "icon": "external-link"
+        },
+        {
+          "text": "Join Beta",
+          "url": "/beta/racing-future",
+          "type": "custom",
+          "icon": "play"
+        }
+      ]
+    },
+    {
+      "id": "puzzle-master",
+      "title": "Puzzle Master: Mind Benders",
+      "shortDescription": "Brain-teasing puzzle collection for all ages",
+      "longDescription": "Challenge your mind with over 500 unique puzzles ranging from simple logic to complex brain teasers. Perfect for players of all skill levels.",
+      "genre": "Puzzle",
+      "status": "Free on Mobile",
+      "platforms": ["PC", "Mobile", "Tablet"],
+      "featuredMedia": {
+        "type": "image",
+        "url": "/images/scene6.jpg",
+        "alt": "Puzzle Master - Colorful puzzle pieces forming intricate patterns"
+      },
+      "screenshots": [
+        "/images/scene6.jpg",
+        "/images/scene1.jpeg",
+        "/images/scene2.jpg"
+      ],
+
+      "releaseDate": "2023-12-15",
+      "navigationButtons": [
+        {
+          "text": "App Store",
+          "url": "https://apps.apple.com/app/puzzle-master/id456789123",
+          "type": "appstore",
+          "icon": "download"
+        },
+        {
+          "text": "Google Play",
+          "url": "https://play.google.com/store/apps/details?id=com.xstudio.puzzlemaster",
+          "type": "playstore",
+          "icon": "download"
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "totalGames": 6,
+    "lastUpdated": "2024-12-19",
+    "version": "3.2"
+  }
+} 

@@ -1,0 +1,52 @@
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import Layout from './components/layout/Layout';
+import Home from './pages/Home';
+import GameDetail from './pages/GameDetail';
+import { applyColorPalette, getCurrentColorPalette } from './utils/colorPalettes';
+import { applyTypographyPreset } from './utils/typography';
+import './styles/global.css';
+
+function App() {
+  const [currentTheme, setCurrentTheme] = useState('cyberpunk');
+  const [currentTypography, setCurrentTypography] = useState('gaming-cyberpunk');
+
+  // Initialize theme on component mount
+  useEffect(() => {
+    // Apply default theme
+    applyColorPalette(currentTheme);
+    applyTypographyPreset(currentTypography);
+  }, []);
+
+  // Theme switching function
+  const switchTheme = (themeName) => {
+    applyColorPalette(themeName);
+    setCurrentTheme(themeName);
+  };
+
+  // Typography switching function
+  const switchTypography = (typographyName) => {
+    applyTypographyPreset(typographyName);
+    setCurrentTypography(typographyName);
+  };
+
+  return (
+    <Router>
+      <div className="App">
+        <Layout 
+          currentTheme={currentTheme}
+          currentTypography={currentTypography}
+          onThemeChange={switchTheme}
+          onTypographyChange={switchTypography}
+        >
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/game/:id" element={<GameDetail />} />
+          </Routes>
+        </Layout>
+      </div>
+    </Router>
+  );
+}
+
+export default App;
