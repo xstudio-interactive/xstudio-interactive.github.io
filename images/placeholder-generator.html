@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Placeholder Image Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #1a1a1a;
+            color: white;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .game-image {
+            width: 400px;
+            height: 225px;
+            margin: 20px 0;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        .hero-image {
+            width: 800px;
+            height: 450px;
+            margin: 20px 0;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background: #5a6fd8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Game Image Placeholders</h1>
+        <p>Right-click on each image and "Save image as..." to download them as PNG files.</p>
+        
+        <h2>Hero Images (800x450)</h2>
+        <div class="hero-image" id="cyber-quest-hero">Cyber Quest 2077<br>Hero Image</div>
+        <div class="hero-image" id="space-explorer-hero">Space Explorer<br>Hero Image</div>
+        <div class="hero-image" id="pixel-adventure-hero">Pixel Adventure<br>Hero Image</div>
+        <div class="hero-image" id="tower-defense-hero">Tower Defense<br>Hero Image</div>
+        <div class="hero-image" id="racing-future-hero">Racing Future<br>Hero Image</div>
+        <div class="hero-image" id="puzzle-master-hero">Puzzle Master<br>Hero Image</div>
+        
+        <h2>Game Images (400x225)</h2>
+        <div class="game-image" id="cyber-quest-1">Cyber Quest 2077<br>Screenshot 1</div>
+        <div class="game-image" id="cyber-quest-2">Cyber Quest 2077<br>Screenshot 2</div>
+        <div class="game-image" id="cyber-quest-3">Cyber Quest 2077<br>Screenshot 3</div>
+        
+        <div class="game-image" id="space-explorer-1">Space Explorer<br>Screenshot 1</div>
+        <div class="game-image" id="space-explorer-2">Space Explorer<br>Screenshot 2</div>
+        <div class="game-image" id="space-explorer-3">Space Explorer<br>Screenshot 3</div>
+        
+        <div class="game-image" id="pixel-adventure-1">Pixel Adventure<br>Screenshot 1</div>
+        <div class="game-image" id="pixel-adventure-2">Pixel Adventure<br>Screenshot 2</div>
+        <div class="game-image" id="pixel-adventure-3">Pixel Adventure<br>Screenshot 3</div>
+        
+        <div class="game-image" id="tower-defense-1">Tower Defense<br>Screenshot 1</div>
+        <div class="game-image" id="tower-defense-2">Tower Defense<br>Screenshot 2</div>
+        <div class="game-image" id="tower-defense-3">Tower Defense<br>Screenshot 3</div>
+        
+        <div class="game-image" id="racing-future-1">Racing Future<br>Screenshot 1</div>
+        <div class="game-image" id="racing-future-2">Racing Future<br>Screenshot 2</div>
+        <div class="game-image" id="racing-future-3">Racing Future<br>Screenshot 3</div>
+        
+        <div class="game-image" id="puzzle-master-1">Puzzle Master<br>Screenshot 1</div>
+        <div class="game-image" id="puzzle-master-2">Puzzle Master<br>Screenshot 2</div>
+        <div class="game-image" id="puzzle-master-3">Puzzle Master<br>Screenshot 3</div>
+    </div>
+
+    <script>
+        // Function to convert div to image and download
+        function downloadImage(elementId, filename) {
+            const element = document.getElementById(elementId);
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            
+            // Set canvas size
+            canvas.width = element.offsetWidth;
+            canvas.height = element.offsetHeight;
+            
+            // Create a temporary div to render the element
+            const tempDiv = element.cloneNode(true);
+            tempDiv.style.position = 'absolute';
+            tempDiv.style.left = '-9999px';
+            document.body.appendChild(tempDiv);
+            
+            // Use html2canvas or similar library for better rendering
+            // For now, we'll create a simple colored background
+            const computedStyle = window.getComputedStyle(element);
+            const background = computedStyle.background;
+            
+            // Parse gradient and create canvas gradient
+            if (background.includes('gradient')) {
+                const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+                gradient.addColorStop(0, '#667eea');
+                gradient.addColorStop(1, '#764ba2');
+                ctx.fillStyle = gradient;
+            } else {
+                ctx.fillStyle = '#667eea';
+            }
+            
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            // Add text
+            ctx.fillStyle = 'white';
+            ctx.font = 'bold 24px Arial';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.shadowColor = 'rgba(0,0,0,0.3)';
+            ctx.shadowBlur = 4;
+            ctx.shadowOffsetX = 0;
+            ctx.shadowOffsetY = 2;
+            
+            const text = element.textContent;
+            const lines = text.split('\n');
+            const lineHeight = 30;
+            const startY = canvas.height / 2 - (lines.length - 1) * lineHeight / 2;
+            
+            lines.forEach((line, index) => {
+                ctx.fillText(line.trim(), canvas.width / 2, startY + index * lineHeight);
+            });
+            
+            // Download
+            const link = document.createElement('a');
+            link.download = filename;
+            link.href = canvas.toDataURL();
+            link.click();
+            
+            document.body.removeChild(tempDiv);
+        }
+        
+        // Add download buttons for each image
+        const images = [
+            { id: 'cyber-quest-hero', filename: 'cyber-quest-hero.jpg' },
+            { id: 'space-explorer-hero', filename: 'space-explorer-hero.jpg' },
+            { id: 'pixel-adventure-hero', filename: 'pixel-adventure-hero.jpg' },
+            { id: 'tower-defense-hero', filename: 'tower-defense-hero.jpg' },
+            { id: 'racing-future-hero', filename: 'racing-future-hero.jpg' },
+            { id: 'puzzle-master-hero', filename: 'puzzle-master-hero.jpg' },
+            { id: 'cyber-quest-1', filename: 'cyber-quest-1.jpg' },
+            { id: 'cyber-quest-2', filename: 'cyber-quest-2.jpg' },
+            { id: 'cyber-quest-3', filename: 'cyber-quest-3.jpg' },
+            { id: 'space-explorer-1', filename: 'space-explorer-1.jpg' },
+            { id: 'space-explorer-2', filename: 'space-explorer-2.jpg' },
+            { id: 'space-explorer-3', filename: 'space-explorer-3.jpg' },
+            { id: 'pixel-adventure-1', filename: 'pixel-adventure-1.jpg' },
+            { id: 'pixel-adventure-2', filename: 'pixel-adventure-2.jpg' },
+            { id: 'pixel-adventure-3', filename: 'pixel-adventure-3.jpg' },
+            { id: 'tower-defense-1', filename: 'tower-defense-1.jpg' },
+            { id: 'tower-defense-2', filename: 'tower-defense-2.jpg' },
+            { id: 'tower-defense-3', filename: 'tower-defense-3.jpg' },
+            { id: 'racing-future-1', filename: 'racing-future-1.jpg' },
+            { id: 'racing-future-2', filename: 'racing-future-2.jpg' },
+            { id: 'racing-future-3', filename: 'racing-future-3.jpg' },
+            { id: 'puzzle-master-1', filename: 'puzzle-master-1.jpg' },
+            { id: 'puzzle-master-2', filename: 'puzzle-master-2.jpg' },
+            { id: 'puzzle-master-3', filename: 'puzzle-master-3.jpg' }
+        ];
+        
+        images.forEach(img => {
+            const button = document.createElement('button');
+            button.textContent = `Download ${img.filename}`;
+            button.onclick = () => downloadImage(img.id, img.filename);
+            document.getElementById(img.id).parentNode.insertBefore(button, document.getElementById(img.id).nextSibling);
+        });
+    </script>
+</body>
+</html> 
