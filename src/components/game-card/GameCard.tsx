@@ -22,18 +22,7 @@ const GameCard: React.FC<GameCardProps> = ({ game }) => {
             }}
           />
         ) : (
-          <div 
-            className={styles.imagePlaceholder}
-            style={{
-              background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              color: 'white',
-              fontSize: '14px',
-              fontWeight: 'bold'
-            }}
-          >
+          <div className={styles.imagePlaceholder}>
             {game.title}
           </div>
         )}
