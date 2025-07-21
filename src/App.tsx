@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import Layout from './components/layout/Layout';
 import Home from './pages/Home';
 import GameDetail from './pages/GameDetail';
+import Contact from './pages/Contact';
 import { applyColorPalette } from './utils/colorPalettes';
 import { applyTypographyPreset } from './utils/typography';
 import './styles/global.css';
@@ -42,6 +43,7 @@ function App(): React.JSX.Element {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/game/:id" element={<GameDetail />} />
+            <Route path="/contact" element={<Contact />} />
           </Routes>
         </Layout>
       </div>

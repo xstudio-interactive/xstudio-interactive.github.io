@@ -1,0 +1,29 @@
+{
+  "intro": "Get in touch with us.",
+  "methods": [
+    {
+      "type": "email",
+      "label": "General Contact",
+      "description": "For general inquiries, feedback, or support, send us an email.",
+      "button": "Email Us",
+      "icon": "mail",
+      "link": "mailto:xstudio.interaction@gmail.com"
+    },
+    {
+      "type": "discord",
+      "label": "Discord Community",
+      "description": "Join our Discord to chat with the team and other players!",
+      "button": "Join Discord",
+      "icon": "discord",
+      "link": "https://discord.com"
+    },
+    {
+      "type": "instagram",
+      "label": "Instagram",
+      "description": "Follow us on Instagram for updates and behind-the-scenes!",
+      "button": "Follow on Instagram",
+      "icon": "instagram",
+      "link": "https://instagram.com"
+    }
+  ]
+} 
