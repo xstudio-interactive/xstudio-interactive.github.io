@@ -1,10 +1,16 @@
 import { Link, useLocation } from 'react-router-dom';
 import styles from './Navigation.module.css';
 
-const Navigation = () => {
+interface NavItem {
+  path: string;
+  label: string;
+  exact: boolean;
+}
+
+const Navigation: React.FC = () => {
   const location = useLocation();
 
-  const navItems = [
+  const navItems: NavItem[] = [
     { path: '/', label: 'Games', exact: true },
     { path: '/about', label: 'About', exact: false },
     { path: '/contact', label: 'Contact', exact: false }
@@ -38,4 +44,4 @@ const Navigation = () => {
   );
 };
 
-export default Navigation; 
+export default Navigation;
