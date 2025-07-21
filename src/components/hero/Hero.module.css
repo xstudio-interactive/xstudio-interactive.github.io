@@ -401,135 +401,220 @@
 }
 
 /* Responsive Design */
-@media (min-width: 1400px) {
-  .projectShowcase {
-    height: 100vh;
-    max-height: 100vh;
-  }
-  
-  .bannerContent {
-    max-width: min(800px, 70vw);
-  }
-}
 
-@media (max-width: 768px) {
+/* phone-only: max-width 599px */
+@media (max-width: 599px) {
+  .mainContent {
+    min-height: 60vh;
+    height: auto;
+    max-height: 70vh;
+  }
+
   .projectShowcase {
     height: 100vh;
     min-height: 100vh;
   }
-  
-  .projectBanner {
-    padding: var(--space-md) 0 var(--space-lg) 0;
-  }
-  
-  .bannerContent {
-    max-width: 100%;
-    text-align: center;
-    padding: 0 var(--space-sm);
-  }
-  
-  .projectTitle {
-    font-size: clamp(var(--font-size-md), 5vw, var(--font-size-lg));
-  }
-  
-  .projectDescription {
-    font-size: clamp(var(--font-size-xs), 3vw, var(--font-size-sm));
-  }
-  
-  .projectActions {
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-  
-  .navigationButton {
-    padding: var(--space-xs) var(--space-md);
-    font-size: clamp(var(--font-size-xs), 2.5vw, var(--font-size-sm));
-  }
-  
-  .carouselContainer {
-    padding: var(--space-xl) 0 var(--space-lg) 0;
-  }
-  
-  .carouselContent {
-    gap: var(--space-md);
-    width: 100%;
-    max-width: 100%;
-  }
-  
-  .projectCards {
-    padding: 0 var(--space-sm);
-    gap: var(--space-sm);
-    max-width: calc(100% - clamp(60px, 10vw, 80px));
-    width: 100%;
-  }
-  
-  .projectCard {
-    flex: 0 0 clamp(80px, 15vw, 120px);
-    min-width: 0;
-  }
-  
-  .navButton {
-    width: clamp(28px, 5vw, 36px);
-    height: clamp(28px, 5vw, 36px);
-  }
-}
-
-@media (max-width: 480px) {
-  .projectShowcase {
-    height: 100vh;
-    min-height: 100vh;
-  }
-  
   .projectBanner {
     padding: var(--space-sm) 0 var(--space-md) 0;
   }
-  
   .bannerContent {
     padding: 0 var(--space-xs);
+    max-width: 100%;
+    text-align: center;
   }
-  
   .projectTitle {
     font-size: clamp(var(--font-size-sm), 6vw, var(--font-size-md));
   }
-  
   .projectDescription {
     font-size: clamp(var(--font-size-xs), 3.5vw, var(--font-size-sm));
   }
-  
   .projectActions {
     flex-direction: column;
     align-items: center;
   }
-  
   .navigationButton {
     width: 100%;
     justify-content: center;
     padding: var(--space-sm) var(--space-md);
     font-size: clamp(var(--font-size-xs), 3vw, var(--font-size-sm));
   }
-  
   .projectCard {
     flex: 0 0 clamp(70px, 12vw, 100px);
     min-width: 0;
   }
-  
   .projectCards {
     padding: 0 var(--space-xs);
     gap: var(--space-xs);
     max-width: calc(100% - clamp(50px, 8vw, 72px));
     width: 100%;
   }
-  
   .navButton {
     width: clamp(24px, 4vw, 32px);
     height: clamp(24px, 4vw, 32px);
   }
-  
   .carouselContainer {
     padding: var(--space-lg) 0 var(--space-md) 0;
   }
-  
   .carouselContent {
     gap: var(--space-sm);
+  }
+}
+
+/* tablet-portrait-up: 600px - 899px */
+@media (min-width: 600px) and (max-width: 899px) {
+  .mainContent {
+    min-height: 65vh;
+    height: auto;
+    max-height: 80vh;
+  }
+
+  .projectBanner {
+    padding: var(--space-md) 0 var(--space-lg) 0;
+  }
+  .bannerContent {
+    max-width: 100%;
+    text-align: center;
+    padding: 0 var(--space-sm);
+  }
+  .projectTitle {
+    font-size: clamp(var(--font-size-md), 5vw, var(--font-size-lg));
+  }
+  .projectDescription {
+    font-size: clamp(var(--font-size-xs), 3vw, var(--font-size-sm));
+  }
+  .projectActions {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .navigationButton {
+    padding: var(--space-xs) var(--space-md);
+    font-size: clamp(var(--font-size-xs), 2.5vw, var(--font-size-sm));
+  }
+  .carouselContainer {
+    padding: var(--space-xl) 0 var(--space-lg) 0;
+  }
+  .carouselContent {
+    gap: var(--space-md);
+    width: 100%;
+    max-width: 100%;
+  }
+  .projectCards {
+    padding: 0 var(--space-sm);
+    gap: var(--space-sm);
+    max-width: calc(100% - clamp(60px, 10vw, 80px));
+    width: 100%;
+  }
+  .projectCard {
+    flex: 0 0 clamp(80px, 15vw, 120px);
+    min-width: 0;
+  }
+  .navButton {
+    width: clamp(28px, 5vw, 36px);
+    height: clamp(28px, 5vw, 36px);
+  }
+}
+
+/* tablet-landscape-up: 900px - 1199px */
+@media (min-width: 900px) and (max-width: 1199px) {
+  .mainContent {
+    min-height: 70vh;
+    height: 100%;
+    max-height: 85vh;
+  }
+
+  .projectShowcase {
+    height: 100vh;
+    max-height: 100vh;
+  }
+  .bannerContent {
+    max-width: min(700px, 75vw);
+  }
+  .carouselContainer {
+    padding: var(--space-2xl) 0 var(--space-xl) 0;
+  }
+  .carouselContent {
+    gap: var(--space-lg);
+  }
+  .projectCards {
+    gap: var(--space-lg);
+    padding: 0 var(--space-lg);
+    max-width: calc(100% - clamp(80px, 12vw, 120px));
+  }
+  .projectCard {
+    flex: 0 0 clamp(100px, 20vw, 158px);
+  }
+  .navButton {
+    width: clamp(32px, 6vw, 48px);
+    height: clamp(32px, 6vw, 48px);
+  }
+}
+
+/* desktop-up: 1200px - 1799px */
+@media (min-width: 1200px) and (max-width: 1799px) {
+  .mainContent {
+    min-height: 75vh;
+    height: 100%;
+    max-height: 90vh;
+  }
+
+  .projectShowcase {
+    height: 100vh;
+    max-height: 100vh;
+  }
+  .bannerContent {
+    max-width: min(800px, 70vw);
+  }
+  .carouselContainer {
+    padding: var(--space-2xl) 0 var(--space-xl) 0;
+  }
+  .carouselContent {
+    gap: var(--space-lg);
+  }
+  .projectCards {
+    gap: var(--space-lg);
+    padding: 0 var(--space-lg);
+    max-width: calc(100% - clamp(80px, 12vw, 120px));
+  }
+  .projectCard {
+    flex: 0 0 clamp(120px, 22vw, 180px);
+  }
+  .navButton {
+    width: clamp(36px, 7vw, 56px);
+    height: clamp(36px, 7vw, 56px);
+  }
+}
+
+/* big-desktop-up: 1800px and up */
+@media (min-width: 1800px) {
+  .mainContent {
+    min-height: 80vh;
+    height: 100%;
+    max-height: 95vh;
+  }
+  
+  .projectShowcase {
+    height: 100vh;
+    max-height: 100vh;
+  }
+  .bannerContent {
+    max-width: min(1000px, 60vw);
+  }
+  .carouselContainer {
+    padding: var(--space-3xl) 0 var(--space-2xl) 0;
+  }
+  .carouselContent {
+    gap: var(--space-xl);
+  }
+  .projectCards {
+    gap: var(--space-xl);
+    padding: 0 var(--space-xl);
+    max-width: calc(100% - clamp(120px, 16vw, 200px));
+  }
+  .projectCard {
+    flex: 0 0 clamp(160px, 28vw, 240px);
+  }
+  .navButton {
+    width: clamp(48px, 8vw, 72px);
+    height: clamp(48px, 8vw, 72px);
   }
 } 
