@@ -219,7 +219,8 @@ const ProjectShowcase: React.FC<HeroProps> = ({ games }) => {
         <div className="container-wide">
           <div className={styles.carouselContent}>
             {/* Navigation Buttons - Left */}
-            <button 
+            <button
+              type="button"
               onClick={prevSlide}
               className={`${styles.navButton} ${styles.prevButton}`}
               aria-label="Previous project"
@@ -251,23 +252,12 @@ const ProjectShowcase: React.FC<HeroProps> = ({ games }) => {
                           target.style.display = 'none';
                           const parent = target.parentElement as HTMLElement;
                           if (parent) {
-                            parent.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+                            parent.style.background = 'linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%)';
                           }
                         }}
                       />
                     ) : (
-                      <div 
-                        className={styles.cardImage}
-                        style={{
-                          background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          color: 'white',
-                          fontSize: '14px',
-                          fontWeight: 'bold'
-                        }}
-                      >
+                      <div className={styles.cardImage}>
                         {game.title}
                       </div>
                     )}

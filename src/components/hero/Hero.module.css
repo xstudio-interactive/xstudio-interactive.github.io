@@ -211,8 +211,8 @@
   background: rgba(255, 255, 255, 0.1);
   color: white;
   border: 1px solid rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
 }
 
 .learnButton:hover {
@@ -258,8 +258,8 @@
   justify-content: center;
   cursor: pointer;
   transition: all 0.3s ease;
-  backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
   z-index: 10;
   flex-shrink: 0;
 }
@@ -305,8 +305,8 @@
   cursor: pointer;
   transition: all 0.3s ease;
   border: 2px solid transparent;
-  backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
   position: relative;
   aspect-ratio: 16/9;
   filter: grayscale(100%); /* Make all thumbnails grayscale by default */
