@@ -1,16 +1,19 @@
 # GameCard Component
 
 ## Overview
+
 The GameCard component displays individual game information in a card format with hover animations and interactive elements. It's designed to showcase games in a grid layout with a gaming-focused aesthetic.
 
 ## Component Specifications
 
 ### Props
+
 ```jsx
 <GameCard game={gameObject} />
 ```
 
 ### Game Object Structure
+
 ```javascript
 {
   id: string,
@@ -22,6 +25,7 @@ The GameCard component displays individual game information in a card format wit
 ```
 
 ### Required Fields
+
 - **title**: Game title displayed as heading
 - **shortDescription**: Short description of the game
 - **genre**: Game genre/category
@@ -30,11 +34,13 @@ The GameCard component displays individual game information in a card format wit
 ## Visual Design
 
 ### Card Structure
+
 1. **Image Section**: Full-height placeholder with gradient background
 2. **Content Overlay**: Hidden by default, slides up from bottom on hover
 3. **Metadata Grid**: Genre and platforms in a responsive layout
 
 ### Styling Features
+
 - **Hover Effects**: Card lifts up with shadow and border color change
 - **Gradient Border**: Animated top border on hover
 - **Content Animation**: Content slides up from bottom with fade-in effect
@@ -43,6 +49,7 @@ The GameCard component displays individual game information in a card format wit
 - **Responsive**: Adapts to different screen sizes
 
 ### Color System
+
 - Uses CSS custom properties for theme consistency
 - Supports swappable color palettes
 - Gaming-focused aesthetic with vibrant accents
@@ -50,7 +57,8 @@ The GameCard component displays individual game information in a card format wit
 ## Interactions
 
 ### Hover States
-1. **Card Hover**: 
+
+1. **Card Hover**:
    - Translates up by 8px (4px on mobile)
    - Adds enhanced shadow
    - Changes border color to primary
@@ -61,25 +69,27 @@ The GameCard component displays individual game information in a card format wit
    - Semi-transparent gradient background appears
    - Smooth fade-in transition
 
-
-
 ### Click Actions
+
 - **No direct actions**: Component is display-only
 - **Navigation**: Can be wrapped in Link component for routing
 
 ## Responsive Behavior
 
 ### Desktop (768px+)
+
 - 16:9 aspect ratio maintained
 - 2-column metadata grid in overlay
 - Maximum hover translation (8px)
 
 ### Tablet (480px - 768px)
+
 - 16:9 aspect ratio maintained
 - Single-column metadata layout in overlay
 - Reduced padding in content overlay
 
 ### Mobile (<480px)
+
 - 16:9 aspect ratio maintained
 - Minimal padding in content overlay
 - Reduced hover translation (4px)
@@ -87,19 +97,23 @@ The GameCard component displays individual game information in a card format wit
 ## CSS Classes
 
 ### Main Container
+
 - `.gameCard`: Main card container with hover effects
 
 ### Image Section
+
 - `.cardImage`: Full-height image container with placeholder (16:9 ratio)
 - `.imagePlaceholder`: Gradient background
 
 ### Content Section
+
 - `.cardContent`: Overlay content area (slides up from bottom)
 - `.cardHeader`: Title section
 - `.cardMeta`: Metadata grid container
 - `.metaItem`: Individual metadata item
 
 ### Platform Display
+
 - `.platforms`: Platform tags container
 - `.platform`: Individual platform tag
 - `.platformMore`: "+X more" indicator
@@ -107,6 +121,7 @@ The GameCard component displays individual game information in a card format wit
 ## Usage Examples
 
 ### Basic Usage
+
 ```jsx
 import GameCard from './components/game-card/GameCard';
 
@@ -122,6 +137,7 @@ const game = {
 ```
 
 ### With Wrapper for Navigation
+
 ```jsx
 import { Link } from 'react-router-dom';
 
@@ -133,11 +149,13 @@ import { Link } from 'react-router-dom';
 ## Accessibility
 
 ### Keyboard Navigation
+
 - All interactive elements are keyboard accessible
 - Focus states are clearly visible
 - Proper ARIA labels for screen readers
 
 ### Screen Reader Support
+
 - Semantic HTML structure
 - Descriptive alt text for icons
 - Clear content hierarchy
@@ -145,17 +163,20 @@ import { Link } from 'react-router-dom';
 ## Performance Considerations
 
 ### Optimizations
+
 - CSS transitions for smooth animations
 - Efficient hover state management
 - Minimal DOM manipulation
 
 ### Bundle Size
+
 - CSS Modules for scoped styling
 - No external dependencies beyond React Router
 
 ## Data Structure
 
 ### Clean Game Data
+
 The component expects a simplified game object structure that matches the cleaned up `games.json`:
 
 ```javascript
@@ -173,7 +194,9 @@ The component expects a simplified game object structure that matches the cleane
 ```
 
 ### Removed Fields
+
 The following fields have been removed from the data structure:
+
 - `description` (long description)
 - `image` and `screenshots`
 - `releaseDate` and `status`
@@ -184,12 +207,14 @@ The following fields have been removed from the data structure:
 ## Future Enhancements
 
 ### Planned Features
+
 - Image loading states
 - Lazy loading for large grids
 - Custom image support
 - Additional platform links
 
 ### Potential Improvements
+
 - Animation performance optimization
 - Enhanced accessibility features
 - Custom theme support
@@ -197,5 +222,5 @@ The following fields have been removed from the data structure:
 
 ---
 
-*Last Updated: December 19, 2024*
-*Version: 2.4* 
+*Last Updated: July 21, 2024*
+*Version: 2.4*
