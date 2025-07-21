@@ -6,22 +6,22 @@ This guide ensures all CSS follows our established design system and maintains t
 
 ## 📋 Table of Contents
 
-- [Design Philosophy](#design-philosophy)
-- [File Structure](#file-structure)
-- [Design Tokens](#design-tokens)
-- [Color System](#color-system)
-- [Typography](#typography)
-- [Spacing & Layout](#spacing--layout)
-- [Component Styling](#component-styling)
-- [CSS Modules](#css-modules)
-- [Responsive Design](#responsive-design)
-- [Performance Guidelines](#performance-guidelines)
-- [Code Quality](#code-quality)
-- [Common Patterns](#common-patterns)
+- [Design Philosophy](#-design-philosophy)
+- [File Structure](#-file-structure)
+- [Design Tokens](#-design-tokens)
+- [Color System](#-color-system)
+- [Typography](#-typography)
+- [Spacing & Layout](#-spacing--layout)
+- [Component Styling](#-component-styling)
+- [Responsive Design](#-responsive-design)
+- [Performance Guidelines](#-performance-guidelines)
+- [Code Quality](#-code-quality)
+- [Common Patterns](#-common-patterns)
 
 ## 🎮 Design Philosophy
 
 **Gaming-First Aesthetic**: Our design prioritizes a less corporate, more gamer feel with:
+
 - Bold, vibrant colors with neon accents
 - High contrast for readability
 - Smooth animations and transitions
@@ -30,7 +30,7 @@ This guide ensures all CSS follows our established design system and maintains t
 
 ## 📁 File Structure
 
-```
+```md
 src/styles/
 ├── variables.css          # Design tokens & CSS custom properties
 ├── color-palettes.css     # Theme color definitions
@@ -40,6 +40,7 @@ src/styles/
 ```
 
 **✅ DO**: Import styles in this order in your main CSS file:
+
 ```css
 @import './variables.css';
 @import './color-palettes.css';
@@ -51,6 +52,7 @@ src/styles/
 ### Using CSS Custom Properties
 
 **✅ DO**: Always use design tokens from [variables.css](variables.css):
+
 ```css
 .myComponent {
   padding: var(--space-lg);
@@ -61,6 +63,7 @@ src/styles/
 ```
 
 **❌ DON'T**: Use hardcoded values:
+
 ```css
 .myComponent {
   padding: 24px;
@@ -95,6 +98,7 @@ Our app supports multiple gaming themes defined in [color-palettes.css](color-pa
 ### Color Usage Guidelines
 
 **✅ DO**: Use semantic color variables:
+
 ```css
 .button {
   background-color: var(--color-primary);
@@ -104,6 +108,7 @@ Our app supports multiple gaming themes defined in [color-palettes.css](color-pa
 ```
 
 **❌ DON'T**: Use theme-specific colors directly:
+
 ```css
 .button {
   background-color: #00ff88; /* Hardcoded cyberpunk green */
@@ -126,6 +131,7 @@ Our app supports multiple gaming themes defined in [color-palettes.css](color-pa
 Use predefined typography classes from [typography.css](typography.css):
 
 **✅ DO**: Use semantic typography classes:
+
 ```css
 .gameTitle {
   composes: heading-2 from global;
@@ -134,6 +140,7 @@ Use predefined typography classes from [typography.css](typography.css):
 ```
 
 **Available Classes**:
+
 - `heading-1` through `heading-6`: Semantic headings
 - `body-large`, `body`, `body-small`: Body text variants
 - `caption`: Small, muted text
@@ -142,6 +149,7 @@ Use predefined typography classes from [typography.css](typography.css):
 ### Font Utilities
 
 **✅ DO**: Use utility classes for quick styling:
+
 ```css
 .gameCard {
   composes: font-display text-lg font-semibold from global;
@@ -165,6 +173,7 @@ Use the consistent spacing scale for all margins, padding, and gaps:
 ### Layout Utilities
 
 **✅ DO**: Use utility classes from [global.css](global.css):
+
 ```css
 .gameGrid {
   composes: grid grid-cols-3 gap-lg from global;
@@ -206,6 +215,7 @@ Use the consistent spacing scale for all margins, padding, and gaps:
 ### Animation Guidelines
 
 **✅ DO**: Use consistent transitions:
+
 ```css
 .interactiveElement {
   transition: all var(--transition-normal);
@@ -218,6 +228,7 @@ Use the consistent spacing scale for all margins, padding, and gaps:
 ```
 
 **Animation Principles**:
+
 - Use `var(--transition-fast)` for micro-interactions
 - Use `var(--transition-normal)` for standard interactions
 - Use `var(--transition-slow)` for major state changes
@@ -228,6 +239,7 @@ Use the consistent spacing scale for all margins, padding, and gaps:
 ### Mobile-First Approach
 
 **✅ DO**: Start with mobile styles, then enhance for larger screens:
+
 ```css
 .gameCard {
   padding: var(--space-sm);
@@ -249,6 +261,7 @@ Use the consistent spacing scale for all margins, padding, and gaps:
 ### Responsive Utilities
 
 Use responsive grid utilities:
+
 ```css
 .gameGrid {
   composes: grid gap-md from global;
@@ -273,6 +286,7 @@ Use responsive grid utilities:
 ### CSS Optimization
 
 **✅ DO**: Optimize for performance:
+
 ```css
 /* Use transform instead of top/left for animations */
 .animatedElement {
@@ -286,6 +300,7 @@ Use responsive grid utilities:
 ```
 
 **❌ DON'T**: Use expensive properties for animations:
+
 ```css
 .animatedElement {
   top: 0;
@@ -309,6 +324,7 @@ Use responsive grid utilities:
 ### Naming Conventions
 
 **✅ DO**: Use BEM-like naming for CSS Modules:
+
 ```css
 .gameCard { }
 .gameCard__image { }
@@ -320,6 +336,7 @@ Use responsive grid utilities:
 ### CSS Organization
 
 **✅ DO**: Organize CSS properties in this order:
+
 ```css
 .myComponent {
   /* 1. Layout */
@@ -358,6 +375,7 @@ Use responsive grid utilities:
 ### Comments
 
 **✅ DO**: Add meaningful comments:
+
 ```css
 /* Game card container with hover effects */
 .gameCard {
@@ -451,4 +469,4 @@ Use responsive grid utilities:
 
 ---
 
-**Remember**: Consistency is key! Always use the design system tokens and follow established patterns to maintain the gaming aesthetic across the entire application. 
+**Remember**: Consistency is key! Always use the design system tokens and follow established patterns to maintain the gaming aesthetic across the entire application.
