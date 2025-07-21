@@ -155,6 +155,63 @@ XStudio/
 - **Performance**: Ensure fast loading on mobile networks
 - **Touch interactions**: Optimize for touch vs mouse interactions
 
+## Responsive Design Breakpoints
+
+To standardize responsive behavior, we use **content-based breakpoints** that reflect actual layout needs, not device models. This keeps our CSS maintainable and future-proof.
+
+### Standard Breakpoints & Human-Friendly Ranges
+
+| Range                | Min Width | Max Width | Use Case                |
+|----------------------|-----------|-----------|-------------------------|
+| phone-only           |    —      | 599px     | Mobile phones           |
+| tablet-portrait-up   | 600px     | 899px     | Tablets (portrait)      |
+| tablet-landscape-up  | 900px     | 1199px    | Tablets (landscape)     |
+| desktop-up           | 1200px    | 1799px    | Standard desktops       |
+| big-desktop-up       | 1800px    |    —      | Large/ultrawide screens |
+
+### CSS Media Query Examples
+
+Use explicit CSS media queries for each breakpoint. This approach is declarative, easy to maintain, and avoids magic numbers scattered throughout the codebase.
+
+```css
+/* phone-only */
+@media (max-width: 599px) {
+  .my-box { padding: 8px; }
+}
+
+/* tablet-portrait-up */
+@media (min-width: 600px) and (max-width: 899px) {
+  .my-box { padding: 12px; }
+}
+
+/* tablet-landscape-up */
+@media (min-width: 900px) and (max-width: 1199px) {
+  .my-box { padding: 16px; }
+}
+
+/* desktop-up */
+@media (min-width: 1200px) and (max-width: 1799px) {
+  .my-box { padding: 20px; }
+}
+
+/* big-desktop-up */
+@media (min-width: 1800px) {
+  .my-box { padding: 32px; }
+}
+```
+
+**Why this approach?**
+
+- **Declarative:** Use clear, named ranges instead of scattering magic numbers.
+- **Maintainable:** Change breakpoints in one place.
+- **No over-engineering:** No need for preprocessors or complex logic—just plain CSS.
+
+**Testing Tip:**
+
+- Use **Chrome DevTools’ responsive toolbar** to interactively test these breakpoints. Drag to resize and verify your layout at each range.
+
+---
+
 ## Status
 
 - [x] Requirements gathered
