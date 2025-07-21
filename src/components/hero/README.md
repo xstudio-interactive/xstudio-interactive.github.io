@@ -1,11 +1,13 @@
 # ProjectShowcase Component
 
 ## Overview
+
 The ProjectShowcase component transforms the traditional hero section into an immersive project showcase with featured media backgrounds, interactive carousel navigation, and real-time progress indicators.
 
 ## Features
 
 ### 🎬 Featured Media Background
+
 - Dynamic background images for each game with 16:9 aspect ratio
 - Smooth transitions between projects with overlay effects
 - Gradient overlays for optimal text readability
@@ -13,6 +15,7 @@ The ProjectShowcase component transforms the traditional hero section into an im
 - Graceful fallback to gradient backgrounds if images fail to load
 
 ### 🎠 Interactive Carousel Navigation
+
 - **Auto-advancing carousel** with 5-second intervals and visual progress tracking
 - **Manual navigation** with left/right buttons positioned on carousel sides
 - **Clickable project cards** with instant selection and auto-scroll
@@ -21,12 +24,14 @@ The ProjectShowcase component transforms the traditional hero section into an im
 - **Auto-scroll functionality** to keep selected thumbnail in view
 
 ### 📱 Responsive Design
+
 - Mobile-first approach with adaptive layouts
 - Touch-friendly navigation optimized for mobile devices
 - Responsive thumbnail sizing (210px desktop, 180px tablet, 150px mobile)
 - Optimized for various aspect ratios and screen sizes
 
 ### 🎮 Gaming-Focused Design
+
 - Gaming aesthetics with modern UI and backdrop blur effects
 - Smooth hover animations and color transitions
 - Color-coded genre badges
@@ -34,6 +39,7 @@ The ProjectShowcase component transforms the traditional hero section into an im
 - Progress indicators with shimmer and pulse animations
 
 ### ⏱️ Progress Tracking
+
 - **Visual progress bar** on active thumbnail showing advancement
 - **Countdown timer** displaying remaining seconds
 - **Smooth animations** with shimmer and pulse effects
@@ -109,6 +115,7 @@ The component expects a `games` array with the following structure:
 ```
 
 ### Navigation Button Types
+
 - **steam**: Steam store links with external-link icon
 - **appstore**: iOS App Store links with download icon
 - **playstore**: Google Play Store links with download icon
@@ -116,6 +123,7 @@ The component expects a `games` array with the following structure:
 - **learn**: Internal game detail pages with arrow-right icon
 
 ### Icon Types
+
 - **play**: Play icon for custom actions
 - **arrow-right**: Navigation to internal pages
 - **external-link**: External store links
@@ -145,7 +153,9 @@ The component uses CSS Modules with the following key classes:
 ## Customization
 
 ### Colors
+
 The component uses CSS custom properties for theming:
+
 - `--color-primary`: Primary brand color (#00ff88 cyberpunk green)
 - `--color-primary-light`: Lighter primary variant
 - `--color-primary-dark`: Darker primary variant
@@ -153,19 +163,25 @@ The component uses CSS custom properties for theming:
 - `--color-error`: Error states
 
 ### Spacing
+
 Uses systematic spacing scale:
+
 - `--space-xs` to `--space-4xl` (4px to 96px)
 - Responsive breakpoints for different screen sizes
 - Consistent gap and padding values
 
 ### Typography
+
 Integrates with the global typography system:
+
 - `.heading-1` for project titles (responsive sizing)
 - `.body-large` for descriptions (reduced sizing)
 - `.body-small` for metadata and timers
 
 ### Button Styling
+
 Platform-specific button styles:
+
 - **Steam**: Dark blue gradient with Steam branding
 - **App Store**: Blue gradient with iOS styling
 - **Google Play**: Green gradient with Android styling
@@ -202,18 +218,21 @@ Platform-specific button styles:
 ## Recent Updates
 
 ### v3.5 - Project Status Display
+
 - ✅ **Custom Status Field**: Project status now displays custom strings from data
 - ✅ **Status Examples**: "Full Release Available on Steam", "Early Access", "Wishlist on Steam", etc.
 - ✅ **Enhanced Styling**: Glassmorphism effect with backdrop blur and subtle border
 - ✅ **Better UX**: Clear project availability and status information
 
 ### v3.4 - Harmonized Typography
+
 - ✅ **Harmonized Font Sizes**: Clean, consistent scale with 1.2 ratio progression
 - ✅ **Clean Values**: Rounded to whole pixels for better consistency
 - ✅ **Balanced Jumps**: More harmonious size progression (10px → 12px → 14px → 16px → 20px → 24px → 30px → 36px → 44px → 54px)
 - ✅ **Improved Readability**: Better visual hierarchy with consistent spacing
 
 ### v3.3 - Simplified Design
+
 - ✅ **Removed Star Ratings**: Cleaner interface without rating display
 - ✅ **Reduced Font Sizes**: Smaller typography across the entire site
 - ✅ **Streamlined Status**: Genre badge only in project status
@@ -221,6 +240,7 @@ Platform-specific button styles:
 - ✅ **Consistent Design**: Aligned with simplified GameCard component
 
 ### v3.2 - Enhanced User Experience
+
 - ✅ **Progress Bar**: Visual progress indicator with countdown timer
 - ✅ **Auto-Scroll**: Automatic scrolling to keep selected thumbnail in view
 - ✅ **Grayscale Thumbnails**: Inactive thumbnails in grayscale with color on hover/selection
@@ -229,4 +249,4 @@ Platform-specific button styles:
 - ✅ **Simplified Hover Effects**: Color-only transitions without scale/movement
 - ✅ **Enhanced Visual Hierarchy**: Clear status, title, description, and button layout
 - ✅ **Responsive Progress**: Progress bar adapts to all screen sizes
-- ✅ **Smooth Animations**: Shimmer and pulse effects for progress indicators 
+- ✅ **Smooth Animations**: Shimmer and pulse effects for progress indicators
