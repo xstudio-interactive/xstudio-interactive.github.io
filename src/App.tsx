@@ -4,13 +4,14 @@ import Layout from './components/layout/Layout';
 import Home from './pages/Home';
 import GameDetail from './pages/GameDetail';
 import Contact from './pages/Contact';
+import Galaxy from './Backgrounds/Galaxy/Galaxy';
 import { applyColorPalette } from './utils/colorPalettes';
 import { applyTypographyPreset } from './utils/typography';
 import './styles/global.css';
 
 function App(): React.JSX.Element {
-  const [currentTheme, setCurrentTheme] = useState<string>('cyberpunk');
-  const [currentTypography, setCurrentTypography] = useState<string>('gaming-cyberpunk');
+  const [currentTheme, setCurrentTheme] = useState<string>('gaming-vibrant');
+  const [currentTypography, setCurrentTypography] = useState<string>('gaming-modern');
 
   // Initialize theme on component mount
   useEffect(() => {
@@ -34,6 +35,11 @@ function App(): React.JSX.Element {
   return (
     <Router>
       <div className="App">
+        {/* Dynamic Galaxy Background */}
+        <div className="background-container" style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', zIndex: -1 }}>
+          <Galaxy />
+        </div>
+        
         <Layout 
           currentTheme={currentTheme}
           currentTypography={currentTypography}

@@ -1,6 +1,7 @@
-import { Link, useLocation } from 'react-router-dom';
-import { Palette, X } from 'lucide-react';
+import { useLocation } from 'react-router-dom';
+import { Palette, X, Gamepad2, Users, Mail } from 'lucide-react';
 import type { HeaderProps } from '../../types';
+import GooeyNav from '../GooeyNav/GooeyNav';
 import styles from './Header.module.css';
 
 const Header: React.FC<HeaderProps> = ({ 
@@ -10,57 +11,65 @@ const Header: React.FC<HeaderProps> = ({
   const location = useLocation();
 
   const navItems = [
-    { path: '/', label: 'Games', exact: true },
-    { path: '/about', label: 'About', exact: false },
-    { path: '/contact', label: 'Contact', exact: false }
+    { 
+      label: 'Games', 
+      href: '/',
+      icon: <Gamepad2 size={18} />
+    },
+    { 
+      label: 'About', 
+      href: '/about',
+      icon: <Users size={18} />
+    },
+    { 
+      label: 'Contact', 
+      href: '/contact',
+      icon: <Mail size={18} />
+    }
   ];
 
   return (
     <header className={styles.header}>
-      <div className="container">
-        <div className={`${styles.headerContent} flex items-center justify-between`}>
+      <div className={styles.headerContainer}>
+        <div className={styles.headerContent}>
           {/* Logo */}
-          <Link to="/" className={styles.logo}>
-            <span className="heading-4 text-primary-brand">XStudio</span>
-            <span className="body-small text-muted">Game Showcase</span>
-          </Link>
+          <div className={styles.logo}>
+            <div className={styles.logoText}>
+              <span className={styles.logoMain}>XStudio</span>
+              <span className={styles.logoSub}>Interactive</span>
+            </div>
+            <div className={styles.logoGlow}></div>
+          </div>
 
-          {/* Navigation */}
-          <nav className={styles.navigation}>
-            <ul className={`${styles.navList} flex items-center gap-lg`}>
-              {navItems.map((item) => {
-                const isActive = item.exact 
-                  ? location.pathname === item.path
-                  : location.pathname.startsWith(item.path);
-                
-                return (
-                  <li key={item.path}>
-                    <Link
-                      to={item.path}
-                      className={`${styles.navLink} ${
-                        isActive ? styles.active : ''
-                      }`}
-                    >
-                      {item.label}
-                    </Link>
-                  </li>
-                );
-              })}
-            </ul>
-          </nav>
+          {/* React Bits GooeyNav */}
+          <div className={styles.navigation}>
+            <GooeyNav
+              items={navItems}
+              animationTime={600}
+              particleCount={15}
+              particleDistances={[90, 10]}
+              particleR={100}
+              timeVariance={300}
+              colors={[1, 2, 3, 1, 2, 3, 1, 4]}
+              initialActiveIndex={navItems.findIndex(item => 
+                item.href === '/' ? location.pathname === '/' : location.pathname.startsWith(item.href)
+              )}
+            />
+          </div>
 
           {/* Theme Controls */}
-          <div className={`${styles.themeControls} flex items-center gap-sm`}>
+          <div className={styles.themeControls}>
             <button
               className={`${styles.themeButton} ${showThemePanel ? styles.active : ''}`}
               onClick={() => setShowThemePanel(!showThemePanel)}
               aria-label="Toggle theme panel"
             >
               {showThemePanel ? (
-                <X size={20} className="text-primary" />
+                <X size={20} />
               ) : (
-                <Palette size={20} className="text-primary" />
+                <Palette size={20} />
               )}
+              <div className={styles.buttonGlow}></div>
             </button>
           </div>
         </div>
