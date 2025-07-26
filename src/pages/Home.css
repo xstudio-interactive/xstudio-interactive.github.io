@@ -15,7 +15,6 @@
   text-align: center;
   padding: 2rem;
   position: relative;
-  background: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(20,20,40,0.9) 100%);
 }
 
 .hero-content {
@@ -107,7 +106,6 @@
 /* Featured Section */
 .featured-section {
   padding: 6rem 2rem;
-  background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(30,30,60,0.8) 100%);
 }
 
 .section-title {
@@ -228,7 +226,6 @@
 /* Games Grid Section */
 .games-section {
   padding: 6rem 2rem;
-  background: var(--bg-primary);
 }
 
 .games-grid {
@@ -362,7 +359,6 @@
 /* Studio Section */
 .studio-section {
   padding: 6rem 2rem;
-  background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(30,30,60,0.8) 100%);
 }
 
 .studio-showcase {
@@ -444,7 +440,6 @@
 /* CTA Section */
 .cta-section {
   padding: 6rem 2rem;
-  background: var(--bg-primary);
   text-align: center;
 }
 
