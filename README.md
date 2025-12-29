@@ -60,6 +60,32 @@ npm run preview
 
 ## Deployment to GitHub Pages
 
+The project is configured for automatic deployment to GitHub Pages using GitHub Actions.
+
+### Setup (One-time)
+
+1. **Enable GitHub Pages in your repository:**
+   - Go to your repository on GitHub
+   - Click **Settings** → **Pages**
+   - Under **Source**, select **GitHub Actions** (not "Deploy from a branch")
+   - Save the settings
+
+2. **Push your code:**
+   ```bash
+   git add .
+   git commit -m "Initial commit"
+   git push origin main
+   ```
+
+3. **The GitHub Action will automatically:**
+   - Build your project when you push to `main` branch
+   - Deploy the built files to GitHub Pages
+   - Your site will be available at: `https://houchuyi.github.io/xstudio-interactive.github.io/`
+
+### Manual Deployment (Alternative)
+
+If you prefer to deploy manually:
+
 1. Build the project:
 ```bash
 npm run build
@@ -67,33 +93,7 @@ npm run build
 
 2. The `vite.config.js` is already configured with the base path `/xstudio-interactive.github.io/`
 
-3. Deploy the `dist` folder to the `gh-pages` branch or use GitHub Actions
-
-### Using GitHub Actions (Recommended)
-
-Create `.github/workflows/deploy.yml`:
-```yaml
-name: Deploy to GitHub Pages
-
-on:
-  push:
-    branches: [ main ]
-
-jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '18'
-      - run: npm install
-      - run: npm run build
-      - uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
-```
+3. Push the `dist` folder contents to the `gh-pages` branch
 
 ## Project Structure
 
