@@ -74,11 +74,11 @@ The project is configured for automatic deployment to GitHub Pages using GitHub 
    ```bash
    git add .
    git commit -m "Initial commit"
-   git push origin main
+   git push origin website
    ```
 
 3. **The GitHub Action will automatically:**
-   - Build your project when you push to `main` branch
+   - Build your project when you push to `website` branch
    - Deploy the built files to GitHub Pages
    - Your site will be available at: `https://houchuyi.github.io/xstudio-interactive.github.io/`
 
