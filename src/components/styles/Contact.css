@@ -24,6 +24,10 @@
   background: rgba(255, 255, 255, 0.02);
   transition: var(--transition-normal);
   min-width: 160px;
+  display: flex;
+  flex-direction: column;
+  min-height: 120px;
+  justify-content: space-between;
 }
 
 .info-card:hover {
@@ -47,12 +51,42 @@
   color: var(--text-primary);
   font-size: 0.95rem;
   font-weight: 400;
+  margin-bottom: auto;
+  flex-grow: 1;
+}
+
+.email-button {
+  display: inline-block;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  background: rgba(0, 255, 255, 0.1);
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  border-radius: 6px;
+  color: var(--neon-cyan);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: var(--transition-normal);
+  margin-top: auto;
+  align-self: flex-start;
+  width: 100%;
+  text-align: center;
+}
+
+.email-button:hover {
+  background: rgba(0, 255, 255, 0.2);
+  border-color: var(--neon-cyan);
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+  transform: translateY(-1px);
 }
 
 .social-links {
   display: flex;
   gap: var(--spacing-sm);
   flex-wrap: wrap;
+  margin-top: auto;
+  align-items: flex-end;
 }
 
 .social-link {
