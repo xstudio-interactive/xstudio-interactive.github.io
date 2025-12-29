@@ -19,7 +19,7 @@ const Header = () => {
       <div className="container">
         <div className="header-content">
           <div className="logo">
-            <img src="/images/studio_icon.png" alt="ShakesBee Studio" className="logo-icon" />
+            <img src="/images/studio_icon_nobg_white.png" alt="ShakesBee Studio" className="logo-icon" />
             <span className="logo-text">ShakesBee Studio</span>
           </div>
           <Navigation 

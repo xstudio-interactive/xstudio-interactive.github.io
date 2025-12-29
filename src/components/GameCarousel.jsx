@@ -12,7 +12,7 @@ const GameCarousel = () => {
     {
       id: 2,
       title: 'ShakesBee Studio',
-      image: '/images/studio_icon.png',
+      image: '/images/studio_icon_nobg_white.png',
     },
   ]
 

@@ -46,7 +46,7 @@ const Hero = () => {
         </div>
         <div className="hero-visual">
           <div className="floating-card glass-effect animate-float">
-            <img src="/images/studio_icon.png" alt="Studio Icon" className="studio-icon-large" />
+            <img src="/images/studio_icon_nobg_white.png" alt="Studio Icon" className="studio-icon-large" />
           </div>
         </div>
       </div>
