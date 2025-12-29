@@ -4,11 +4,6 @@ import './styles/Hero.css'
 const Hero = () => {
   return (
     <section id="home" className="hero section">
-      <div className="hero-background">
-        <div className="gradient-orb orb-1"></div>
-        <div className="gradient-orb orb-2"></div>
-        <div className="gradient-orb orb-3"></div>
-      </div>
       <div className="container">
         <div className="hero-content">
           <div className="hero-badge">
@@ -19,7 +14,7 @@ const Hero = () => {
             <span className="title-line">Studio Inc.</span>
           </h1>
           <p className="hero-description">
-            Powered by Coffee, High Brainrot.
+            Powered by Coffee, Chaos, and Bad Ideas.
           </p>
           <div className="hero-cta">
             <a href="#portfolio" className="btn btn-primary">

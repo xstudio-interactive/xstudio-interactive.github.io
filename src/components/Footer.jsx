@@ -10,7 +10,7 @@ const Footer = () => {
         <div className="footer-content">
           <div className="footer-brand">
             <h3 className="footer-title">ShakesBee Studio Inc.</h3>
-            <p className="footer-tagline">Creating immersive gaming experiences</p>
+            <p className="footer-tagline">Powered by Coffee, Chaos, and Bad Ideas.</p>
           </div>
           <div className="footer-links">
             <a href="#home" className="footer-link">Home</a>
