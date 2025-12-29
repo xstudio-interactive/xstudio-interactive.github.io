@@ -40,7 +40,7 @@
 .info-title {
   font-family: var(--font-heading);
   font-size: 0.9rem;
-  margin-bottom: var(--spacing-xs);
+  margin-bottom: 0.25rem;
   color: var(--text-secondary);
   font-weight: 500;
   text-transform: uppercase;
@@ -51,34 +51,47 @@
   color: var(--text-primary);
   font-size: 0.95rem;
   font-weight: 400;
-  margin-bottom: auto;
+  margin: 0;
   flex-grow: 1;
 }
 
-.email-button {
-  display: inline-block;
-  padding: var(--spacing-xs) var(--spacing-sm);
-  background: rgba(0, 255, 255, 0.1);
-  border: 1px solid rgba(0, 255, 255, 0.3);
-  border-radius: 6px;
-  color: var(--neon-cyan);
-  text-decoration: none;
-  font-size: 0.85rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  transition: var(--transition-normal);
+.email-container {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
   margin-top: auto;
-  align-self: flex-start;
-  width: 100%;
-  text-align: center;
 }
 
-.email-button:hover {
-  background: rgba(0, 255, 255, 0.2);
-  border-color: var(--neon-cyan);
-  box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+.email-link {
+  color: var(--neon-cyan);
+  text-decoration: none;
+  padding: var(--spacing-xs);
+  border: 1px solid rgba(0, 255, 255, 0.15);
+  border-radius: 6px;
+  transition: var(--transition-normal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  opacity: 0.7;
+  flex-shrink: 0;
+}
+
+.email-link svg {
+  width: 16px;
+  height: 16px;
+}
+
+.email-link:hover {
+  background: rgba(0, 255, 255, 0.1);
+  border-color: rgba(0, 255, 255, 0.3);
+  opacity: 1;
   transform: translateY(-1px);
+}
+
+.email-link:hover svg {
+  fill: var(--neon-cyan);
 }
 
 .social-links {
