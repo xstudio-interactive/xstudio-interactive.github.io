@@ -1,9 +1,8 @@
 .hero {
-  min-height: 100vh;
   display: flex;
   align-items: center;
   position: relative;
-  padding-top: 100px;
+  padding: var(--spacing-lg) 0 !important;
   overflow: hidden;
 }
 
