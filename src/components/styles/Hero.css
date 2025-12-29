@@ -252,13 +252,16 @@
   animation: scroll-mouse 2s infinite;
 }
 
+.scroll-arrow-wrapper {
+  animation: scroll-arrow 2s infinite;
+}
+
 .scroll-arrow {
   width: 20px;
   height: 20px;
   border-right: 2px solid var(--neon-cyan);
   border-bottom: 2px solid var(--neon-cyan);
   transform: rotate(45deg);
-  animation: scroll-arrow 2s infinite;
 }
 
 @keyframes scroll-mouse {
@@ -275,11 +278,11 @@
 @keyframes scroll-arrow {
   0%, 100% {
     opacity: 1;
-    transform: rotate(45deg) translateY(0);
+    transform: translateY(0);
   }
   50% {
     opacity: 0.3;
-    transform: rotate(45deg) translateY(10px);
+    transform: translateY(10px);
   }
 }
 
@@ -335,6 +338,24 @@
   
   .orb-1, .orb-2, .orb-3 {
     filter: blur(60px);
+  }
+  
+  .hero-cta {
+    margin-bottom: var(--spacing-xl);
+  }
+  
+  .scroll-indicator {
+    bottom: var(--spacing-md);
+  }
+}
+
+@media (max-width: 480px) {
+  .scroll-indicator {
+    display: none;
+  }
+  
+  .hero-cta {
+    margin-bottom: var(--spacing-lg);
   }
 }
 
