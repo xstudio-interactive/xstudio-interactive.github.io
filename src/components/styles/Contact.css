@@ -64,10 +64,10 @@
 }
 
 .email-link {
-  color: var(--theme-primary);
+  color: var(--button-accent);
   text-decoration: none;
   padding: var(--spacing-xs);
-  border: 1px solid rgba(var(--theme-primary-rgb), 0.15);
+  border: 1px solid rgba(var(--button-accent-rgb), 0.15);
   border-radius: 6px;
   transition: var(--transition-normal);
   display: flex;
@@ -85,14 +85,14 @@
 }
 
 .email-link:hover {
-  background: rgba(var(--theme-primary-rgb), 0.1);
-  border-color: rgba(var(--theme-primary-rgb), 0.3);
+  background: rgba(var(--button-accent-rgb), 0.1);
+  border-color: rgba(var(--button-accent-rgb), 0.3);
   opacity: 1;
   transform: translateY(-1px);
 }
 
 .email-link:hover svg {
-  fill: var(--theme-primary);
+  fill: var(--button-accent);
 }
 
 .social-links {
@@ -103,10 +103,10 @@
 }
 
 .social-link {
-  color: var(--theme-primary);
+  color: var(--button-accent);
   text-decoration: none;
   padding: var(--spacing-xs);
-  border: 1px solid rgba(var(--theme-primary-rgb), 0.15);
+  border: 1px solid rgba(var(--button-accent-rgb), 0.15);
   border-radius: 6px;
   transition: var(--transition-normal);
   display: flex;
@@ -123,14 +123,14 @@
 }
 
 .social-link:hover {
-  background: rgba(var(--theme-primary-rgb), 0.1);
-  border-color: rgba(var(--theme-primary-rgb), 0.3);
+  background: rgba(var(--button-accent-rgb), 0.1);
+  border-color: rgba(var(--button-accent-rgb), 0.3);
   opacity: 1;
   transform: translateY(-1px);
 }
 
 .social-link:hover svg {
-  fill: var(--bg-primary);
+  fill: var(--button-accent);
 }
 
 .contact-form {

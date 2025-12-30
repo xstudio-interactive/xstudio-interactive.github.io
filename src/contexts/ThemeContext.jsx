@@ -12,9 +12,9 @@ export const useTheme = () => {
 
 export const ThemeProvider = ({ children }) => {
   const [theme, setTheme] = useState(() => {
-    // Get theme from localStorage or default to 'cream'
+    // Get theme from localStorage or default to 'green'
     const savedTheme = localStorage.getItem('colorTheme')
-    return savedTheme || 'cream'
+    return savedTheme || 'green'
   })
 
   useEffect(() => {

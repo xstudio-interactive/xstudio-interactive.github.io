@@ -30,37 +30,8 @@
   --transition-slow: 0.5s ease;
 }
 
-/* Cream Theme (Default) */
+/* Green Theme (Default) */
 :root,
-:root.theme-cream {
-  /* Primary Accent (Cream) */
-  --neon-cyan: var(--bee-cream);
-  --neon-purple: var(--bee-yellow);
-  --neon-blue: var(--bee-orange);
-  --neon-pink: var(--bee-pink);
-  
-  /* Text Colors */
-  --text-primary: var(--bee-cream);
-  --text-secondary: #c0c0a0;
-  --text-accent: var(--bee-cream);
-  
-  /* Gradients */
-  --gradient-primary: linear-gradient(135deg, var(--bee-cream) 0%, var(--bee-yellow) 100%);
-  --gradient-secondary: linear-gradient(135deg, var(--bee-orange) 0%, var(--bee-pink) 100%);
-  --gradient-bg: radial-gradient(circle at 20% 50%, rgba(255, 248, 220, 0.15) 0%, transparent 50%),
-                 radial-gradient(circle at 80% 80%, rgba(255, 179, 71, 0.1) 0%, transparent 50%);
-  
-  /* Effects */
-  --glow-cyan: 0 0 20px rgba(255, 248, 220, 0.6);
-  --glow-purple: 0 0 20px rgba(255, 179, 71, 0.5);
-  --shadow-glass: 0 8px 32px 0 rgba(255, 248, 220, 0.15);
-  
-  /* Theme-specific color values */
-  --theme-primary-rgb: 255, 248, 220;
-  --theme-primary: var(--bee-cream);
-}
-
-/* Green Theme */
 :root.theme-green {
   /* Primary Accent (Green) */
   --neon-cyan: var(--bee-green);
@@ -87,5 +58,44 @@
   /* Theme-specific color values */
   --theme-primary-rgb: 74, 124, 42;
   --theme-primary: var(--bee-green);
+  
+  /* Button accent (always yellow) */
+  --button-accent: var(--bee-yellow);
+  --button-accent-rgb: 255, 179, 71;
+  --button-gradient: linear-gradient(135deg, var(--bee-yellow) 0%, var(--bee-orange) 100%);
+}
+
+/* Cream Theme */
+:root.theme-cream {
+  /* Primary Accent (Cream) */
+  --neon-cyan: var(--bee-cream);
+  --neon-purple: var(--bee-yellow);
+  --neon-blue: var(--bee-orange);
+  --neon-pink: var(--bee-pink);
+  
+  /* Text Colors */
+  --text-primary: var(--bee-cream);
+  --text-secondary: #c0c0a0;
+  --text-accent: var(--bee-cream);
+  
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, var(--bee-cream) 0%, var(--bee-yellow) 100%);
+  --gradient-secondary: linear-gradient(135deg, var(--bee-orange) 0%, var(--bee-pink) 100%);
+  --gradient-bg: radial-gradient(circle at 20% 50%, rgba(255, 248, 220, 0.15) 0%, transparent 50%),
+                 radial-gradient(circle at 80% 80%, rgba(255, 179, 71, 0.1) 0%, transparent 50%);
+  
+  /* Effects */
+  --glow-cyan: 0 0 20px rgba(255, 248, 220, 0.6);
+  --glow-purple: 0 0 20px rgba(255, 179, 71, 0.5);
+  --shadow-glass: 0 8px 32px 0 rgba(255, 248, 220, 0.15);
+  
+  /* Theme-specific color values */
+  --theme-primary-rgb: 255, 248, 220;
+  --theme-primary: var(--bee-cream);
+  
+  /* Button accent (always yellow) */
+  --button-accent: var(--bee-yellow);
+  --button-accent-rgb: 255, 179, 71;
+  --button-gradient: linear-gradient(135deg, var(--bee-yellow) 0%, var(--bee-orange) 100%);
 }
 
