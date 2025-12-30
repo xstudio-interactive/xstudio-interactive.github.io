@@ -7,7 +7,7 @@ const Hero = () => {
       <div className="container">
         <div className="hero-content">
           <div className="hero-badge">
-            <span className="badge-text">Game Development Studio</span>
+            <span className="badge-text">Toronto indie game studio</span>
           </div>
           <h1 className="hero-title">
             <span className="title-line">ShakesBee</span>
@@ -48,12 +48,6 @@ const Hero = () => {
           <div className="floating-card glass-effect animate-float">
             <img src="/images/studio_icon_nobg_white.png" alt="Studio Icon" className="studio-icon-large" />
           </div>
-        </div>
-      </div>
-      <div className="scroll-indicator">
-        <div className="mouse"></div>
-        <div className="scroll-arrow-wrapper">
-          <div className="scroll-arrow"></div>
         </div>
       </div>
     </section>

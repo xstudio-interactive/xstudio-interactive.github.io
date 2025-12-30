@@ -27,7 +27,7 @@ const Portfolio = () => {
     <section id="portfolio" className="portfolio section">
       <div className="container">
         <div className="section-header">
-          <h2 className="section-title">The Game</h2>
+          <h2 className="section-title">Featured Games</h2>
           <p className="section-subtitle">
             The chaos we created. The bugs we shipped. The fun we made.
           </p>
