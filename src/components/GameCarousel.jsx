@@ -17,13 +17,7 @@ const GameCarousel = () => {
   ]
 
   const [currentIndex, setCurrentIndex] = useState(0)
-  const [dragOffset, setDragOffset] = useState(0)
-  const [isDragging, setIsDragging] = useState(false)
-  const [isAnimating, setIsAnimating] = useState(false)
   const intervalRef = useRef(null)
-  const dragStartRef = useRef(null)
-  const slidesContainerRef = useRef(null)
-  const animationRef = useRef(null)
 
   // Function to start/reset the auto-advance timer
   const startTimer = React.useCallback(() => {
@@ -49,172 +43,17 @@ const GameCarousel = () => {
 
   const goToSlide = (index) => {
     setCurrentIndex(index)
-    setDragOffset(0) // Reset drag offset
     startTimer() // Reset timer when manually navigating
   }
 
   const goToPrevious = () => {
     setCurrentIndex((prevIndex) => (prevIndex - 1 + games.length) % games.length)
-    setDragOffset(0) // Reset drag offset
     startTimer() // Reset timer when manually navigating
   }
 
   const goToNext = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % games.length)
-    setDragOffset(0) // Reset drag offset
     startTimer() // Reset timer when manually navigating
-  }
-
-  const handleDragStart = (e) => {
-    // Cancel any ongoing animation
-    if (animationRef.current) {
-      cancelAnimationFrame(animationRef.current)
-      animationRef.current = null
-    }
-    
-    setIsDragging(true)
-    setIsAnimating(false)
-    dragStartRef.current = e.type === 'touchstart' ? e.touches[0].clientX : e.clientX
-    if (e.type === 'mousedown') {
-      e.preventDefault()
-    }
-    // Pause auto-advance while dragging
-    if (intervalRef.current) {
-      clearInterval(intervalRef.current)
-    }
-  }
-
-  const handleDragMove = (e) => {
-    if (!isDragging || !dragStartRef.current) return
-    
-    const currentX = e.type === 'touchmove' ? e.touches[0].clientX : e.clientX
-    const diff = currentX - dragStartRef.current
-    const containerWidth = slidesContainerRef.current?.offsetWidth || 1
-    
-    // Always update drag offset for smooth movement
-    setDragOffset(diff)
-    
-    // Check if we've dragged far enough to wrap to next/previous slide for infinite loop
-    const threshold = containerWidth * 0.6 // 60% of container width
-    
-    if (Math.abs(diff) > threshold) {
-      // Wrap to maintain infinite loop
-      if (diff > threshold) {
-        // Dragged right enough, wrap to previous
-        setCurrentIndex((prevIndex) => {
-          const newIndex = (prevIndex - 1 + games.length) % games.length
-          if (newIndex !== prevIndex) {
-            // Adjust drag start to account for the wrap
-            dragStartRef.current = currentX - (diff - containerWidth)
-            setDragOffset(diff - containerWidth)
-            return newIndex
-          }
-          return prevIndex
-        })
-      } else if (diff < -threshold) {
-        // Dragged left enough, wrap to next
-        setCurrentIndex((prevIndex) => {
-          const newIndex = (prevIndex + 1) % games.length
-          if (newIndex !== prevIndex) {
-            // Adjust drag start to account for the wrap
-            dragStartRef.current = currentX - (diff + containerWidth)
-            setDragOffset(diff + containerWidth)
-            return newIndex
-          }
-          return prevIndex
-        })
-      }
-    }
-    
-    if (e.type === 'mousemove') {
-      e.preventDefault()
-    }
-  }
-
-  const handleDragEnd = () => {
-    if (!isDragging) return
-    
-    const containerWidth = slidesContainerRef.current?.offsetWidth || 1
-    const threshold = containerWidth * 0.15 // 15% of container width to trigger slide change
-    const shouldChange = Math.abs(dragOffset) > threshold
-    
-    setIsDragging(false)
-    setIsAnimating(true)
-    
-    if (shouldChange) {
-      // Determine target slide
-      const targetIndex = dragOffset > 0
-        ? (currentIndex - 1 + games.length) % games.length
-        : (currentIndex + 1) % games.length
-      
-      // Calculate the remaining offset after index change
-      // If we're moving to next slide, we need to account for the slide width
-      const direction = dragOffset > 0 ? 1 : -1
-      const remainingOffset = dragOffset - (direction * containerWidth)
-      
-      // Update index immediately
-      setCurrentIndex(targetIndex)
-      
-      // Start animation from remaining offset to 0
-      requestAnimationFrame(() => {
-        const startOffset = remainingOffset
-        const startTime = performance.now()
-        const duration = 400 // 400ms animation
-        
-        const animate = (currentTime) => {
-          const elapsed = currentTime - startTime
-          const progress = Math.min(elapsed / duration, 1)
-          
-          // Ease-out function (cubic ease-out)
-          const easeOut = 1 - Math.pow(1 - progress, 3)
-          
-          // Interpolate offset to 0
-          const currentOffset = startOffset * (1 - easeOut)
-          setDragOffset(currentOffset)
-          
-          if (progress < 1) {
-            animationRef.current = requestAnimationFrame(animate)
-          } else {
-            // Animation complete - reset offset
-            setDragOffset(0)
-            setIsAnimating(false)
-            dragStartRef.current = null
-            startTimer()
-          }
-        }
-        
-        animationRef.current = requestAnimationFrame(animate)
-      })
-    } else {
-      // Not enough drag - animate back to center
-      const startOffset = dragOffset
-      const startTime = performance.now()
-      const duration = 300 // 300ms animation
-      
-      const animate = (currentTime) => {
-        const elapsed = currentTime - startTime
-        const progress = Math.min(elapsed / duration, 1)
-        
-        // Ease-out function (cubic ease-out)
-        const easeOut = 1 - Math.pow(1 - progress, 3)
-        
-        // Interpolate offset back to 0
-        const currentOffset = startOffset * (1 - easeOut)
-        setDragOffset(currentOffset)
-        
-        if (progress < 1) {
-          animationRef.current = requestAnimationFrame(animate)
-        } else {
-          // Animation complete
-          setDragOffset(0)
-          setIsAnimating(false)
-          dragStartRef.current = null
-          startTimer()
-        }
-      }
-      
-      animationRef.current = requestAnimationFrame(animate)
-    }
   }
 
   return (
@@ -222,23 +61,11 @@ const GameCarousel = () => {
       <div className="container">
         <div className="carousel-wrapper">
           <div className="carousel-container">
-            <div 
-              ref={slidesContainerRef}
-              className={`carousel-slides ${isDragging ? 'dragging' : ''} ${isAnimating ? 'animating' : ''}`}
-              onMouseDown={handleDragStart}
-              onMouseMove={handleDragMove}
-              onMouseUp={handleDragEnd}
-              onMouseLeave={handleDragEnd}
-              onTouchStart={handleDragStart}
-              onTouchMove={handleDragMove}
-              onTouchEnd={handleDragEnd}
-            >
+            <div className="carousel-slides">
               <div 
                 className="carousel-slides-track"
                 style={{
-                  transform: isDragging || isAnimating || Math.abs(dragOffset) > 0
-                    ? `translateX(${-(currentIndex * 100) + (dragOffset / (slidesContainerRef.current?.offsetWidth || 1)) * 100}%)`
-                    : `translateX(${-(currentIndex * 100)}%)`,
+                  transform: `translateX(${-(currentIndex * 100)}%)`,
                 }}
               >
                 {games.map((game, index) => {

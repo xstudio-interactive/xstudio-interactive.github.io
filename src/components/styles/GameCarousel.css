@@ -38,15 +38,10 @@
   height: 100%;
   overflow: hidden;
   z-index: 1;
-  cursor: grab;
   user-select: none;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
-}
-
-.carousel-slides:active {
-  cursor: grabbing;
 }
 
 .carousel-slides-track {
@@ -54,20 +49,6 @@
   width: 100%;
   height: 100%;
   will-change: transform;
-}
-
-/* During drag, disable transitions for smooth real-time movement */
-.carousel-slides.dragging .carousel-slides-track {
-  transition: transform 0s;
-}
-
-/* During animation (after release), disable CSS transitions since we use JS animation */
-.carousel-slides.animating .carousel-slides-track {
-  transition: transform 0s;
-}
-
-/* When not dragging or animating, disable track transitions for fade effect */
-.carousel-slides:not(.dragging):not(.animating) .carousel-slides-track {
   transition: transform 0s;
 }
 
@@ -79,26 +60,14 @@
   opacity: 0;
   transition: opacity 0.8s ease-in-out;
   pointer-events: none;
-}
-
-.carousel-slide.active {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-/* During drag or animation, show all slides */
-.carousel-slides.dragging .carousel-slide,
-.carousel-slides.animating .carousel-slide {
-  opacity: 1;
-}
-
-/* For automatic transitions (fade), only show active slide */
-.carousel-slides:not(.dragging):not(.animating) .carousel-slide:not(.active) {
-  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .slide-content {
-  width: 100%;
+  width: 70%;
+  max-width: 800px;
   height: 100%;
   display: flex;
   align-items: center;
@@ -106,9 +75,22 @@
   position: relative;
 }
 
+.carousel-slide.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* For automatic transitions (fade), only show active slide */
+.carousel-slide:not(.active) {
+  opacity: 0;
+}
+
+
 .slide-image {
   width: 100%;
   height: 100%;
+  max-width: 100%;
+  max-height: 100%;
   object-fit: contain;
   object-position: center;
   pointer-events: none;
@@ -267,6 +249,11 @@
     height: 40px;
   }
   
+  .slide-content {
+    width: 75%;
+    max-width: 700px;
+  }
+  
 }
 
 @media (max-width: 768px) {
@@ -300,6 +287,11 @@
     width: 14px;
     height: 14px;
   }
+  
+  .slide-content {
+    width: 80%;
+    max-width: 600px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -321,6 +313,11 @@
   
   .slide-title {
     font-size: 1.2rem;
+  }
+  
+  .slide-content {
+    width: 85%;
+    max-width: 500px;
   }
 }
 
