@@ -51,7 +51,7 @@
 @media (max-width: 768px) {
   .navigation {
     position: fixed;
-    top: 70px;
+    top: calc(var(--spacing-sm) * 2 + 32px);
     left: 0;
     right: 0;
     background: rgba(10, 10, 15, 0.98);
