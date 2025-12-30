@@ -27,7 +27,8 @@
   display: flex;
   flex-direction: column;
   min-height: 120px;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
 }
 
 .info-card:hover {
@@ -59,7 +60,7 @@
   display: flex;
   align-items: center;
   gap: var(--spacing-xs);
-  margin-top: auto;
+  margin-top: 0;
 }
 
 .email-link {
@@ -96,10 +97,9 @@
 
 .social-links {
   display: flex;
-  gap: var(--spacing-sm);
+  gap: var(--spacing-xs);
   flex-wrap: wrap;
-  margin-top: auto;
-  align-items: flex-end;
+  align-items: center;
 }
 
 .social-link {
