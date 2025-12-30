@@ -1,26 +1,17 @@
 :root {
-  /* Color Scheme - Modern Gaming Theme */
-  --bg-primary: #0a0a0f;
-  --bg-secondary: #141420;
-  --bg-card: rgba(20, 20, 32, 0.6);
+  /* Color Scheme - Bee-Inspired Gaming Theme */
+  --bg-primary: #0f0f0f;
+  --bg-secondary: #1a1a1a;
+  --bg-card: rgba(26, 26, 26, 0.6);
   --bg-glass: rgba(255, 255, 255, 0.05);
   
-  /* Neon Accents */
-  --neon-cyan: #00ffff;
-  --neon-purple: #b026ff;
-  --neon-blue: #0066ff;
-  --neon-pink: #ff00ff;
-  
-  /* Text Colors */
-  --text-primary: #ffffff;
-  --text-secondary: #b0b0b0;
-  --text-accent: var(--neon-cyan);
-  
-  /* Gradients */
-  --gradient-primary: linear-gradient(135deg, var(--neon-cyan) 0%, var(--neon-purple) 100%);
-  --gradient-secondary: linear-gradient(135deg, var(--neon-blue) 0%, var(--neon-pink) 100%);
-  --gradient-bg: radial-gradient(circle at 20% 50%, rgba(0, 255, 255, 0.1) 0%, transparent 50%),
-                 radial-gradient(circle at 80% 80%, rgba(176, 38, 255, 0.1) 0%, transparent 50%);
+  /* Bee-Inspired Accents */
+  --bee-green: #4a7c2a;
+  --bee-green-dark: #2d5016;
+  --bee-yellow: #ffb347;
+  --bee-orange: #ffa500;
+  --bee-cream: #fff8dc;
+  --bee-pink: #ffb6c1;
   
   /* Typography */
   --font-heading: 'Orbitron', sans-serif;
@@ -33,14 +24,68 @@
   --spacing-lg: 4rem;
   --spacing-xl: 6rem;
   
-  /* Effects */
-  --glow-cyan: 0 0 20px rgba(0, 255, 255, 0.5);
-  --glow-purple: 0 0 20px rgba(176, 38, 255, 0.5);
-  --shadow-glass: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  
   /* Transitions */
   --transition-fast: 0.2s ease;
   --transition-normal: 0.3s ease;
   --transition-slow: 0.5s ease;
+}
+
+/* Cream Theme (Default) */
+:root,
+:root.theme-cream {
+  /* Primary Accent (Cream) */
+  --neon-cyan: var(--bee-cream);
+  --neon-purple: var(--bee-yellow);
+  --neon-blue: var(--bee-orange);
+  --neon-pink: var(--bee-pink);
+  
+  /* Text Colors */
+  --text-primary: var(--bee-cream);
+  --text-secondary: #c0c0a0;
+  --text-accent: var(--bee-cream);
+  
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, var(--bee-cream) 0%, var(--bee-yellow) 100%);
+  --gradient-secondary: linear-gradient(135deg, var(--bee-orange) 0%, var(--bee-pink) 100%);
+  --gradient-bg: radial-gradient(circle at 20% 50%, rgba(255, 248, 220, 0.15) 0%, transparent 50%),
+                 radial-gradient(circle at 80% 80%, rgba(255, 179, 71, 0.1) 0%, transparent 50%);
+  
+  /* Effects */
+  --glow-cyan: 0 0 20px rgba(255, 248, 220, 0.6);
+  --glow-purple: 0 0 20px rgba(255, 179, 71, 0.5);
+  --shadow-glass: 0 8px 32px 0 rgba(255, 248, 220, 0.15);
+  
+  /* Theme-specific color values */
+  --theme-primary-rgb: 255, 248, 220;
+  --theme-primary: var(--bee-cream);
+}
+
+/* Green Theme */
+:root.theme-green {
+  /* Primary Accent (Green) */
+  --neon-cyan: var(--bee-green);
+  --neon-purple: var(--bee-yellow);
+  --neon-blue: var(--bee-orange);
+  --neon-pink: var(--bee-pink);
+  
+  /* Text Colors */
+  --text-primary: var(--bee-cream);
+  --text-secondary: #c0c0a0;
+  --text-accent: var(--bee-green);
+  
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, var(--bee-green) 0%, var(--bee-yellow) 100%);
+  --gradient-secondary: linear-gradient(135deg, var(--bee-orange) 0%, var(--bee-pink) 100%);
+  --gradient-bg: radial-gradient(circle at 20% 50%, rgba(74, 124, 42, 0.15) 0%, transparent 50%),
+                 radial-gradient(circle at 80% 80%, rgba(255, 179, 71, 0.1) 0%, transparent 50%);
+  
+  /* Effects */
+  --glow-cyan: 0 0 20px rgba(74, 124, 42, 0.6);
+  --glow-purple: 0 0 20px rgba(255, 179, 71, 0.5);
+  --shadow-glass: 0 8px 32px 0 rgba(45, 80, 22, 0.37);
+  
+  /* Theme-specific color values */
+  --theme-primary-rgb: 74, 124, 42;
+  --theme-primary: var(--bee-green);
 }
 

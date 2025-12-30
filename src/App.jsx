@@ -1,4 +1,5 @@
 import React from 'react'
+import { ThemeProvider } from './contexts/ThemeContext'
 import Header from './components/Header'
 import Hero from './components/Hero'
 import GameCarousel from './components/GameCarousel'
@@ -8,14 +9,16 @@ import Footer from './components/Footer'
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <GameCarousel />
-      <Hero />
-      <Portfolio />
-      <Contact />
-      <Footer />
-    </div>
+    <ThemeProvider>
+      <div className="App">
+        <Header />
+        <GameCarousel />
+        <Hero />
+        <Portfolio />
+        <Contact />
+        <Footer />
+      </div>
+    </ThemeProvider>
   )
 }
 

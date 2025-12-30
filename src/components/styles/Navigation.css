@@ -40,8 +40,8 @@
 }
 
 .nav-link:hover {
-  color: var(--neon-cyan);
-  text-shadow: 0 0 10px var(--neon-cyan);
+  color: var(--theme-primary);
+  text-shadow: 0 0 10px var(--bee-cream);
 }
 
 .nav-link:hover::after {
@@ -54,10 +54,10 @@
     top: calc(var(--spacing-sm) * 2 + 32px);
     left: 0;
     right: 0;
-    background: rgba(10, 10, 15, 0.98);
+    background: rgba(15, 15, 15, 0.98);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(var(--theme-primary-rgb), 0.2);
     max-height: 0;
     overflow: hidden;
     transition: max-height var(--transition-normal);

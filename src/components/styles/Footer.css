@@ -1,6 +1,6 @@
 .footer {
   background: var(--bg-secondary);
-  border-top: 1px solid rgba(0, 255, 255, 0.2);
+  border-top: 1px solid rgba(var(--theme-primary-rgb), 0.2);
   padding: var(--spacing-lg) 0 var(--spacing-md);
   margin-top: var(--spacing-xl);
 }
@@ -48,8 +48,8 @@
 }
 
 .footer-link:hover {
-  color: var(--neon-cyan);
-  text-shadow: 0 0 10px var(--neon-cyan);
+  color: var(--theme-primary);
+  text-shadow: 0 0 10px var(--theme-primary);
 }
 
 .footer-bottom {

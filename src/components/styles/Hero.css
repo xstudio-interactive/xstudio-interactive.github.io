@@ -25,13 +25,13 @@
   padding: var(--spacing-xs) var(--spacing-md);
   background: var(--bg-glass);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(0, 255, 255, 0.3);
+  border: 1px solid rgba(var(--theme-primary-rgb), 0.3);
   border-radius: 50px;
   margin-bottom: var(--spacing-md);
 }
 
 .badge-text {
-  color: var(--neon-cyan);
+  color: var(--theme-primary);
   font-size: 0.9rem;
   font-weight: 600;
   letter-spacing: 1px;
@@ -83,10 +83,10 @@
 }
 
 .hero-social-link {
-  color: var(--neon-cyan);
+  color: var(--theme-primary);
   text-decoration: none;
   padding: var(--spacing-xs);
-  border: 2px solid var(--neon-cyan);
+  border: 2px solid var(--theme-primary);
   border-radius: 8px;
   transition: var(--transition-normal);
   display: flex;
@@ -103,7 +103,7 @@
 }
 
 .hero-social-link:hover {
-  background: var(--neon-cyan);
+  background: var(--theme-primary);
   color: var(--bg-primary);
   box-shadow: var(--glow-cyan);
   transform: translateY(-3px);
@@ -135,17 +135,17 @@
 
 .btn-primary:hover {
   transform: translateY(-3px);
-  box-shadow: 0 0 30px rgba(0, 255, 255, 0.8);
+  box-shadow: 0 0 30px rgba(var(--theme-primary-rgb), 0.8);
 }
 
 .btn-secondary {
   background: transparent;
-  color: var(--neon-cyan);
-  border: 2px solid var(--neon-cyan);
+  color: var(--theme-primary);
+  border: 2px solid var(--theme-primary);
 }
 
 .btn-secondary:hover {
-  background: var(--neon-cyan);
+  background: var(--theme-primary);
   color: var(--bg-primary);
   box-shadow: var(--glow-cyan);
   transform: translateY(-3px);
@@ -165,7 +165,7 @@
   align-items: center;
   justify-content: center;
   padding: var(--spacing-md);
-  border: 1px solid rgba(0, 255, 255, 0.3);
+  border: 1px solid rgba(var(--theme-primary-rgb), 0.3);
 }
 
 .studio-icon-large {
@@ -173,12 +173,12 @@
   height: 100%;
   object-fit: contain;
   filter: 
-    drop-shadow(0 0 10px rgba(0, 255, 255, 0.4))
-    drop-shadow(0 0 20px rgba(0, 255, 255, 0.3))
-    drop-shadow(0 0 30px rgba(0, 255, 255, 0.2))
-    drop-shadow(0 0 40px rgba(0, 255, 255, 0.1))
-    drop-shadow(0 0 50px rgba(0, 255, 255, 0.05))
-    drop-shadow(0 0 60px rgba(0, 255, 255, 0));
+    drop-shadow(0 0 10px rgba(var(--theme-primary-rgb), 0.4))
+    drop-shadow(0 0 20px rgba(255, 179, 71, 0.3))
+    drop-shadow(0 0 30px rgba(var(--theme-primary-rgb), 0.2))
+    drop-shadow(0 0 40px rgba(255, 179, 71, 0.1))
+    drop-shadow(0 0 50px rgba(var(--theme-primary-rgb), 0.05))
+    drop-shadow(0 0 60px rgba(255, 179, 71, 0));
 }
 
 @keyframes fadeInUp {

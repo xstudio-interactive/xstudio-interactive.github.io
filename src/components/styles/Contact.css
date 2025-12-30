@@ -32,7 +32,7 @@
 }
 
 .info-card:hover {
-  border-color: rgba(0, 255, 255, 0.2);
+  border-color: rgba(var(--theme-primary-rgb), 0.2);
   background: rgba(255, 255, 255, 0.04);
   transform: translateY(-2px);
 }
@@ -64,10 +64,10 @@
 }
 
 .email-link {
-  color: var(--neon-cyan);
+  color: var(--theme-primary);
   text-decoration: none;
   padding: var(--spacing-xs);
-  border: 1px solid rgba(0, 255, 255, 0.15);
+  border: 1px solid rgba(var(--theme-primary-rgb), 0.15);
   border-radius: 6px;
   transition: var(--transition-normal);
   display: flex;
@@ -85,14 +85,14 @@
 }
 
 .email-link:hover {
-  background: rgba(0, 255, 255, 0.1);
-  border-color: rgba(0, 255, 255, 0.3);
+  background: rgba(var(--theme-primary-rgb), 0.1);
+  border-color: rgba(var(--theme-primary-rgb), 0.3);
   opacity: 1;
   transform: translateY(-1px);
 }
 
 .email-link:hover svg {
-  fill: var(--neon-cyan);
+  fill: var(--theme-primary);
 }
 
 .social-links {
@@ -103,10 +103,10 @@
 }
 
 .social-link {
-  color: var(--neon-cyan);
+  color: var(--theme-primary);
   text-decoration: none;
   padding: var(--spacing-xs);
-  border: 1px solid rgba(0, 255, 255, 0.15);
+  border: 1px solid rgba(var(--theme-primary-rgb), 0.15);
   border-radius: 6px;
   transition: var(--transition-normal);
   display: flex;
@@ -123,8 +123,8 @@
 }
 
 .social-link:hover {
-  background: rgba(0, 255, 255, 0.1);
-  border-color: rgba(0, 255, 255, 0.3);
+  background: rgba(var(--theme-primary-rgb), 0.1);
+  border-color: rgba(var(--theme-primary-rgb), 0.3);
   opacity: 1;
   transform: translateY(-1px);
 }
@@ -167,8 +167,8 @@
 .form-input:focus,
 .form-textarea:focus {
   outline: none;
-  border-color: var(--neon-cyan);
-  box-shadow: 0 0 0 3px rgba(0, 255, 255, 0.1);
+  border-color: var(--theme-primary);
+  box-shadow: 0 0 0 3px rgba(var(--theme-primary-rgb), 0.1);
   background: rgba(255, 255, 255, 0.08);
 }
 
@@ -197,10 +197,10 @@
 
 .form-success {
   padding: var(--spacing-sm);
-  background: rgba(0, 255, 0, 0.1);
-  border: 1px solid rgba(0, 255, 0, 0.3);
+  background: rgba(var(--theme-primary-rgb), 0.1);
+  border: 1px solid rgba(var(--theme-primary-rgb), 0.3);
   border-radius: 8px;
-  color: #00ff00;
+  color: var(--theme-primary);
   text-align: center;
   margin-bottom: var(--spacing-sm);
   animation: fadeIn var(--transition-normal);

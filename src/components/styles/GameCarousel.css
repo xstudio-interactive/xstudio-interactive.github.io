@@ -127,7 +127,7 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  text-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+  text-shadow: 0 0 20px rgba(var(--theme-primary-rgb), 0.5);
 }
 
 .carousel-controls {
@@ -148,9 +148,9 @@
   height: 50px;
   background: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(10px);
-  border: 2px solid var(--neon-cyan);
+  border: 2px solid var(--theme-primary);
   border-radius: 50%;
-  color: var(--neon-cyan);
+  color: var(--theme-primary);
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -161,7 +161,7 @@
 }
 
 .carousel-button:hover {
-  background: var(--neon-cyan);
+  background: var(--theme-primary);
   color: var(--bg-primary);
   box-shadow: var(--glow-cyan);
   transform: scale(1.1);
@@ -196,7 +196,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--neon-cyan);
+  color: var(--theme-primary);
 }
 
 .indicator:hover {
@@ -204,20 +204,20 @@
 }
 
 .indicator:hover {
-  color: var(--neon-cyan);
+  color: var(--theme-primary);
 }
 
 .indicator:hover svg {
-  filter: drop-shadow(0 0 6px var(--neon-cyan));
+  filter: drop-shadow(0 0 6px var(--theme-primary));
 }
 
 .indicator.active {
   transform: scale(1.3);
-  color: var(--neon-cyan);
+  color: var(--theme-primary);
 }
 
 .indicator.active svg {
-  filter: drop-shadow(0 0 8px var(--neon-cyan));
+  filter: drop-shadow(0 0 8px var(--theme-primary));
 }
 
 .indicator svg {
