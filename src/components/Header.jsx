@@ -15,7 +15,7 @@ const Header = () => {
   }, [])
 
   return (
-    <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
+    <header className={`header ${isScrolled ? 'scrolled' : ''} ${isMobileMenuOpen ? 'menu-open' : ''}`}>
       <div className="container">
         <div className="header-content">
           <div className="logo">
