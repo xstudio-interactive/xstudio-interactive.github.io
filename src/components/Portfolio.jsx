@@ -10,7 +10,7 @@ const Portfolio = () => {
       id: 1,
       title: 'Brainrot Survivor',
       description: 'A 2D top-down survivor game featuring Italian Brainrot Animals as characters. Survive the chaos, embrace the brainrot.',
-      image: '/images/brainrot survivor.png',
+      image: '/images/poster_1.png',
       tags: ['Rogue-lite', '2D', 'action', 'survivor'],
     },
   ]

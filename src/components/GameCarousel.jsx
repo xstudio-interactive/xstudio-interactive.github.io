@@ -7,12 +7,12 @@ const GameCarousel = () => {
     {
       id: 1,
       title: 'Brainrot Survivor',
-      image: '/images/brainrot survivor.png',
+      image: '/images/poster_1.png',
     },
     {
       id: 2,
-      title: 'ShakesBee Studio',
-      image: '/images/studio_icon_nobg_white.png',
+      title: 'Brainrot Survivor',
+      image: '/images/poster_2.png',
     },
   ]
 
