@@ -9,6 +9,11 @@ import Footer from './components/Footer'
 
 function App() {
   useEffect(() => {
+    window.history.scrollRestoration = 'manual'
+    window.scrollTo(0, 0)
+  }, [])
+
+  useEffect(() => {
     const revealElements = Array.from(document.querySelectorAll('[data-reveal]'))
     const depthElements = Array.from(document.querySelectorAll('[data-depth]'))
     let rafId = null
