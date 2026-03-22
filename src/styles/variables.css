@@ -1,101 +1,126 @@
+@font-face {
+  font-family: 'Luckiest Guy';
+  src: url('/fonts/Luckiest_Guy/LuckiestGuy-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Schoolbell';
+  src: url('/fonts/Schoolbell/Schoolbell-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
-  /* Color Scheme - Bee-Inspired Gaming Theme */
-  --bg-primary: #0f0f0f;
-  --bg-secondary: #1a1a1a;
-  --bg-card: rgba(26, 26, 26, 0.6);
-  --bg-glass: rgba(255, 255, 255, 0.05);
-  
-  /* Bee-Inspired Accents */
-  --bee-green: #4a7c2a;
-  --bee-green-dark: #2d5016;
-  --bee-yellow: #ffb347;
-  --bee-orange: #ffa500;
-  --bee-cream: #fff8dc;
-  --bee-pink: #ffb6c1;
-  
-  /* Typography */
-  --font-heading: 'Orbitron', sans-serif;
-  --font-body: 'Rajdhani', sans-serif;
-  
-  /* Spacing */
+  --bee-green: #76b84f;
+  --bee-green-dark: #264f21;
+  --bee-yellow: #ffcf5a;
+  --bee-orange: #ff9a3d;
+  --bee-cream: #fff6d7;
+  --bee-honey: #f8b84e;
+  --bee-pink: #ff7eb6;
+  --void-black: #07080c;
+  --void-deep: #10131c;
+  --void-panel: #171b25;
+
+  --font-heading: 'Luckiest Guy', cursive;
+  --font-body: 'Schoolbell', cursive;
+
+  --spacing-2xs: 0.35rem;
   --spacing-xs: 0.5rem;
   --spacing-sm: 1rem;
   --spacing-md: 2rem;
   --spacing-lg: 4rem;
   --spacing-xl: 6rem;
-  
-  /* Transitions */
+  --spacing-2xl: 8rem;
+
+  --radius-sm: 0.75rem;
+  --radius-md: 1.2rem;
+  --radius-lg: 1.75rem;
+  --radius-xl: 2.5rem;
+
   --transition-fast: 0.2s ease;
-  --transition-normal: 0.3s ease;
-  --transition-slow: 0.5s ease;
+  --transition-normal: 0.35s ease;
+  --transition-slow: 0.6s ease;
 }
 
-/* Green Theme (Default) */
 :root,
 :root.theme-green {
-  /* Primary Accent (Green) */
-  --neon-cyan: var(--bee-green);
-  --neon-purple: var(--bee-yellow);
-  --neon-blue: var(--bee-orange);
-  --neon-pink: var(--bee-pink);
-  
-  /* Text Colors */
+  --bg-primary: var(--void-black);
+  --bg-secondary: #0d1017;
+  --bg-tertiary: #171b25;
+  --bg-card: rgba(18, 22, 32, 0.76);
+  --bg-card-strong: rgba(15, 18, 26, 0.92);
+  --bg-glass: rgba(255, 255, 255, 0.05);
+  --bg-glass-strong: rgba(255, 255, 255, 0.08);
+
   --text-primary: var(--bee-cream);
-  --text-secondary: #c0c0a0;
+  --text-secondary: rgba(255, 246, 215, 0.72);
+  --text-muted: rgba(255, 246, 215, 0.52);
   --text-accent: var(--bee-green);
-  
-  /* Gradients */
-  --gradient-primary: linear-gradient(135deg, var(--bee-green) 0%, var(--bee-yellow) 100%);
-  --gradient-secondary: linear-gradient(135deg, var(--bee-orange) 0%, var(--bee-pink) 100%);
-  --gradient-bg: radial-gradient(circle at 20% 50%, rgba(74, 124, 42, 0.15) 0%, transparent 50%),
-                 radial-gradient(circle at 80% 80%, rgba(255, 179, 71, 0.1) 0%, transparent 50%);
-  
-  /* Effects */
-  --glow-cyan: 0 0 20px rgba(74, 124, 42, 0.6);
-  --glow-purple: 0 0 20px rgba(255, 179, 71, 0.5);
-  --shadow-glass: 0 8px 32px 0 rgba(45, 80, 22, 0.37);
-  
-  /* Theme-specific color values */
-  --theme-primary-rgb: 74, 124, 42;
+
   --theme-primary: var(--bee-green);
-  
-  /* Button accent (always yellow) */
+  --theme-primary-rgb: 118, 184, 79;
+  --theme-secondary: var(--bee-yellow);
+  --theme-secondary-rgb: 255, 207, 90;
   --button-accent: var(--bee-yellow);
-  --button-accent-rgb: 255, 179, 71;
-  --button-gradient: linear-gradient(135deg, var(--bee-yellow) 0%, var(--bee-orange) 100%);
+  --button-accent-rgb: 255, 207, 90;
+
+  --gradient-primary: linear-gradient(135deg, #dfff9c 0%, #ffcf5a 48%, #ff9a3d 100%);
+  --gradient-secondary: linear-gradient(135deg, rgba(118, 184, 79, 0.95) 0%, rgba(255, 154, 61, 0.9) 100%);
+  --gradient-panel: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%);
+  --gradient-bg:
+    radial-gradient(circle at 15% 18%, rgba(118, 184, 79, 0.2) 0%, transparent 34%),
+    radial-gradient(circle at 85% 12%, rgba(255, 207, 90, 0.14) 0%, transparent 28%),
+    radial-gradient(circle at 52% 78%, rgba(255, 126, 182, 0.12) 0%, transparent 24%),
+    linear-gradient(180deg, #06070b 0%, #090c13 38%, #0f1119 100%);
+
+  --glow-cyan: 0 0 30px rgba(118, 184, 79, 0.35);
+  --glow-purple: 0 0 28px rgba(255, 207, 90, 0.28);
+  --glow-strong: 0 24px 60px rgba(255, 154, 61, 0.18);
+  --shadow-glass: 0 18px 50px rgba(0, 0, 0, 0.35);
+  --shadow-panel: 0 16px 50px rgba(0, 0, 0, 0.3);
+  --button-gradient: linear-gradient(135deg, #ffcf5a 0%, #ff9a3d 100%);
 }
 
-/* Cream Theme */
 :root.theme-cream {
-  /* Primary Accent (Cream) */
-  --neon-cyan: var(--bee-cream);
-  --neon-purple: var(--bee-yellow);
-  --neon-blue: var(--bee-orange);
-  --neon-pink: var(--bee-pink);
-  
-  /* Text Colors */
+  --bg-primary: #0b0c0f;
+  --bg-secondary: #12141b;
+  --bg-tertiary: #191d26;
+  --bg-card: rgba(20, 20, 20, 0.74);
+  --bg-card-strong: rgba(21, 21, 21, 0.92);
+  --bg-glass: rgba(255, 248, 220, 0.06);
+  --bg-glass-strong: rgba(255, 248, 220, 0.1);
+
   --text-primary: var(--bee-cream);
-  --text-secondary: #c0c0a0;
+  --text-secondary: rgba(255, 248, 220, 0.75);
+  --text-muted: rgba(255, 248, 220, 0.54);
   --text-accent: var(--bee-cream);
-  
-  /* Gradients */
-  --gradient-primary: linear-gradient(135deg, var(--bee-cream) 0%, var(--bee-yellow) 100%);
-  --gradient-secondary: linear-gradient(135deg, var(--bee-orange) 0%, var(--bee-pink) 100%);
-  --gradient-bg: radial-gradient(circle at 20% 50%, rgba(255, 248, 220, 0.15) 0%, transparent 50%),
-                 radial-gradient(circle at 80% 80%, rgba(255, 179, 71, 0.1) 0%, transparent 50%);
-  
-  /* Effects */
-  --glow-cyan: 0 0 20px rgba(255, 248, 220, 0.6);
-  --glow-purple: 0 0 20px rgba(255, 179, 71, 0.5);
-  --shadow-glass: 0 8px 32px 0 rgba(255, 248, 220, 0.15);
-  
-  /* Theme-specific color values */
-  --theme-primary-rgb: 255, 248, 220;
+
   --theme-primary: var(--bee-cream);
-  
-  /* Button accent (always yellow) */
+  --theme-primary-rgb: 255, 248, 220;
+  --theme-secondary: var(--bee-yellow);
+  --theme-secondary-rgb: 255, 207, 90;
   --button-accent: var(--bee-yellow);
-  --button-accent-rgb: 255, 179, 71;
-  --button-gradient: linear-gradient(135deg, var(--bee-yellow) 0%, var(--bee-orange) 100%);
+  --button-accent-rgb: 255, 207, 90;
+
+  --gradient-primary: linear-gradient(135deg, #fffbed 0%, #ffe18a 52%, #ffb15e 100%);
+  --gradient-secondary: linear-gradient(135deg, rgba(255, 248, 220, 0.96) 0%, rgba(255, 177, 94, 0.92) 100%);
+  --gradient-panel: linear-gradient(180deg, rgba(255, 248, 220, 0.1) 0%, rgba(255, 248, 220, 0.03) 100%);
+  --gradient-bg:
+    radial-gradient(circle at 18% 16%, rgba(255, 248, 220, 0.18) 0%, transparent 34%),
+    radial-gradient(circle at 82% 12%, rgba(255, 207, 90, 0.16) 0%, transparent 28%),
+    radial-gradient(circle at 50% 78%, rgba(255, 126, 182, 0.11) 0%, transparent 24%),
+    linear-gradient(180deg, #08090b 0%, #0d0f14 38%, #12151d 100%);
+
+  --glow-cyan: 0 0 32px rgba(255, 248, 220, 0.28);
+  --glow-purple: 0 0 28px rgba(255, 207, 90, 0.26);
+  --glow-strong: 0 24px 60px rgba(255, 177, 94, 0.18);
+  --shadow-glass: 0 18px 50px rgba(0, 0, 0, 0.36);
+  --shadow-panel: 0 16px 50px rgba(0, 0, 0, 0.32);
+  --button-gradient: linear-gradient(135deg, #ffe18a 0%, #ffb15e 100%);
 }
 

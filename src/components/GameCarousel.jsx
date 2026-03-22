@@ -2,17 +2,22 @@ import React, { useState, useEffect, useRef } from 'react'
 import './styles/GameCarousel.css'
 
 const GameCarousel = () => {
-  // Game titles with their images
   const games = [
     {
       id: 1,
       title: 'Brainrot Survivor',
       image: '/images/poster_1.png',
+      tagline: 'Featured chaos drop',
+      genre: '2D survivor roguelite',
+      description: 'Fast loops, cursed energy, and a loud visual moodboard that leans into the studio personality.',
     },
     {
       id: 2,
-      title: 'Brainrot Survivor',
+      title: 'Studio World Preview',
       image: '/images/poster_2.png',
+      tagline: 'Art slot ready',
+      genre: 'Supporting section art',
+      description: 'This panel is built to accept future key art, seasonal beats, or campaign-style promotional visuals.',
     },
   ]
 
@@ -57,9 +62,17 @@ const GameCarousel = () => {
   }
 
   return (
-    <section id="games" className="game-carousel section">
+    <section id="showcase" className="game-carousel section">
       <div className="container">
+        <div className="section-header showcase-header" data-reveal="up">
+          <span className="section-eyebrow">Studio showcase</span>
+          <h2 className="section-title">Big art, layered mood, and a stronger first scroll.</h2>
+          <p className="section-subtitle">
+            The showcase now behaves more like a game studio splash sequence, with room for campaign art and dramatic section transitions.
+          </p>
+        </div>
         <div className="carousel-wrapper">
+          <div className="carousel-backdrop glass-effect" data-depth="0.14"></div>
           <div className="carousel-container">
             <div className="carousel-slides">
               <div 
@@ -77,12 +90,23 @@ const GameCarousel = () => {
                       className={`carousel-slide ${isCurrent ? 'active' : ''}`}
                     >
                       <div className="slide-content">
-                        <img
-                          src={game.image}
-                          alt={game.title}
-                          className="slide-image"
-                          draggable="false"
-                        />
+                        <div className="slide-image-shell" data-depth="0.24">
+                          <img
+                            src={game.image}
+                            alt={game.title}
+                            className="slide-image"
+                            draggable="false"
+                          />
+                        </div>
+                        <div className="slide-copy glass-effect" data-reveal="up" style={{ '--reveal-delay': '0.12s' }}>
+                          <span className="slide-tagline">{game.tagline}</span>
+                          <h3 className="slide-title">{game.title}</h3>
+                          <p className="slide-description">{game.description}</p>
+                          <div className="slide-meta">
+                            <span>{game.genre}</span>
+                            <span>{index === 0 ? 'Playable spotlight' : 'Future artwork ready'}</span>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   )

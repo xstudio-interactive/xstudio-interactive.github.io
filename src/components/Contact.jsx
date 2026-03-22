@@ -5,9 +5,16 @@ const Contact = () => {
   return (
     <section id="contact" className="contact section">
       <div className="container">
+        <div className="section-header" data-reveal="up">
+          <span className="section-eyebrow">Get in touch</span>
+          <h2 className="section-title">Contact Us</h2>
+          <p className="section-subtitle">
+            Reach out for collabs, feedback, or just to say hi.
+          </p>
+        </div>
         <div className="contact-content">
           <div className="contact-info">
-            <div className="info-card glass-effect">
+            <div className="info-card glass-effect" data-reveal="up">
               <h3 className="info-title">Email</h3>
               <div className="email-container">
                 <p className="info-text">hello@shakesbeestudio.com</p>
@@ -18,7 +25,7 @@ const Contact = () => {
                 </a>
               </div>
             </div>
-            <div className="info-card glass-effect">
+            <div className="info-card glass-effect" data-reveal="up">
               <h3 className="info-title">Social Media</h3>
               <div className="email-container">
                 <div className="social-links">
@@ -45,10 +52,10 @@ const Contact = () => {
                 </div>
               </div>
             </div>
-            <div className="info-card glass-effect">
+            <div className="info-card glass-effect" data-reveal="up">
               <h3 className="info-title">Location</h3>
               <div className="email-container">
-                <p className="info-text">Toronto Canada</p>
+                <p className="info-text">Toronto, Canada</p>
               </div>
             </div>
           </div>
@@ -59,4 +66,3 @@ const Contact = () => {
 }
 
 export default Contact
-

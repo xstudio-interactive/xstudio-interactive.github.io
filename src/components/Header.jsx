@@ -20,10 +20,12 @@ const Header = () => {
     <header className={`header ${isScrolled ? 'scrolled' : ''} ${isMobileMenuOpen ? 'menu-open' : ''}`}>
       <div className="container">
         <div className="header-content">
-          <div className="logo">
+          <a href="#home" className="logo" aria-label="Go to home section">
             <img src="/images/studio_icon_nobg_white.png" alt="ShakesBee Studio" className="logo-icon" />
-            <span className="logo-text">ShakesBee Studio</span>
-          </div>
+            <div className="logo-copy">
+              <span className="logo-text">ShakesBee Studio</span>
+            </div>
+          </a>
           <Navigation 
             isMobileMenuOpen={isMobileMenuOpen}
             setIsMobileMenuOpen={setIsMobileMenuOpen}

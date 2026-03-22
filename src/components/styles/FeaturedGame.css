@@ -1,0 +1,125 @@
+.featured-game {
+  position: relative;
+}
+
+.featured-game::before {
+  display: none;
+}
+
+.fg-layout {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 3rem;
+  align-items: center;
+  max-width: 56rem;
+  margin: 0 auto;
+}
+
+.fg-poster {
+  position: relative;
+}
+
+.fg-poster-frame {
+  position: relative;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow:
+    0 32px 80px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+
+.fg-poster-image {
+  display: block;
+  width: 20rem;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+}
+
+.fg-poster-status {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 2;
+  padding: 0.45rem 0.85rem;
+  border-radius: 999px;
+  background: rgba(7, 8, 12, 0.82);
+  border: 1px solid rgba(var(--button-accent-rgb), 0.3);
+  color: var(--button-accent);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.fg-info {
+  max-width: 34rem;
+}
+
+.fg-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+  padding: 0.55rem 1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(var(--button-accent-rgb), 0.26);
+  background: rgba(var(--button-accent-rgb), 0.08);
+  color: var(--button-accent);
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.fg-title {
+  margin-bottom: 1rem;
+  font-family: var(--font-heading);
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  font-weight: 900;
+  line-height: 1;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.fg-description {
+  margin-bottom: 1.4rem;
+  font-size: 1.15rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+}
+
+.fg-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+@media (max-width: 900px) {
+  .fg-layout {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+    gap: 2rem;
+  }
+
+  .fg-poster-image {
+    width: min(65vw, 16rem);
+  }
+
+  .fg-tags {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .fg-poster-image {
+    width: min(70vw, 14rem);
+  }
+
+  .fg-description {
+    font-size: 1.05rem;
+  }
+}

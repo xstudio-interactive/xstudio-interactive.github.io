@@ -4,7 +4,8 @@ import './styles/Navigation.css'
 const Navigation = ({ isMobileMenuOpen, setIsMobileMenuOpen }) => {
   const navItems = [
     { name: 'Home', href: '#home' },
-    { name: 'Game', href: '#portfolio' },
+    { name: 'Games', href: '#game' },
+    { name: 'About', href: '#about' },
     { name: 'Contact', href: '#contact' },
   ]
 

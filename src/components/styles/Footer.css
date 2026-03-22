@@ -1,8 +1,10 @@
 .footer {
-  background: var(--bg-secondary);
-  border-top: 1px solid rgba(var(--theme-primary-rgb), 0.2);
-  padding: var(--spacing-lg) 0 var(--spacing-md);
-  margin-top: var(--spacing-xl);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01)),
+    var(--bg-secondary);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 3rem 0 1.6rem;
+  margin-top: 4rem;
 }
 
 .footer-content {
@@ -21,8 +23,8 @@
 
 .footer-title {
   font-family: var(--font-heading);
-  font-size: 1.5rem;
-  margin-bottom: var(--spacing-xs);
+  font-size: 1.4rem;
+  margin-bottom: 0.4rem;
   background: var(--gradient-primary);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -32,31 +34,40 @@
 .footer-tagline {
   color: var(--text-secondary);
   font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.footer-description {
+  max-width: 34rem;
+  color: var(--text-muted);
 }
 
 .footer-links {
   display: flex;
-  gap: var(--spacing-md);
+  gap: 0.5rem;
   flex-wrap: wrap;
 }
 
 .footer-link {
   color: var(--text-secondary);
   text-decoration: none;
-  transition: var(--transition-normal);
-  position: relative;
+  transition: color var(--transition-normal), background var(--transition-normal), transform var(--transition-normal);
+  padding: 0.65rem 0.95rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .footer-link:hover {
-  color: var(--theme-primary);
-  text-shadow: 0 0 10px var(--theme-primary);
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateY(-1px);
 }
 
 .footer-bottom {
   text-align: center;
-  padding-top: var(--spacing-md);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  color: var(--text-secondary);
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--text-muted);
   font-size: 0.9rem;
 }
 
@@ -66,8 +77,7 @@
   }
   
   .footer-links {
-    flex-direction: column;
-    gap: var(--spacing-sm);
+    width: 100%;
   }
 }
 

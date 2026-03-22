@@ -1,323 +1,232 @@
 .game-carousel {
-  position: relative;
-  padding: 0;
-  overflow: hidden;
-  width: 100%;
-  min-height: 600px;
+  padding-top: 2rem;
 }
 
-.game-carousel .container {
-  max-width: 100%;
-  padding: 0;
-  margin: 0;
-  height: 100%;
+.showcase-header {
+  max-width: 62rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .carousel-wrapper {
   position: relative;
-  width: 100%;
-  height: 600px;
-  margin: 0;
-  padding: 0;
+  min-height: 44rem;
+  padding: 1.5rem 0 6rem;
+}
+
+.carousel-backdrop {
+  position: absolute;
+  inset: 6rem 2rem 4.5rem;
+  border-radius: var(--radius-xl);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .carousel-container {
   position: relative;
-  width: 100%;
+  z-index: 1;
   height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .carousel-slides {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
   overflow: hidden;
-  z-index: 1;
-  user-select: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
 }
 
 .carousel-slides-track {
   display: flex;
   width: 100%;
-  height: 100%;
-  will-change: transform;
-  transition: transform 0s;
+  transition: transform var(--transition-slow);
 }
 
 .carousel-slide {
   flex: 0 0 100%;
-  width: 100%;
-  height: 100%;
-  position: relative;
-  opacity: 0;
-  transition: opacity 0.8s ease-in-out;
-  pointer-events: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.slide-content {
-  width: 70%;
-  max-width: 800px;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
+  opacity: 0.45;
+  transition: opacity var(--transition-normal);
 }
 
 .carousel-slide.active {
   opacity: 1;
-  pointer-events: auto;
 }
 
-/* For automatic transitions (fade), only show active slide */
-.carousel-slide:not(.active) {
-  opacity: 0;
+.slide-content {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(18rem, 25rem);
+  gap: 2rem;
+  align-items: center;
+  min-height: 34rem;
+  padding: 2rem 3rem;
 }
 
+.slide-image-shell {
+  position: relative;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 20%, rgba(255, 255, 255, 0.08), transparent 55%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.015));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: var(--shadow-panel);
+}
+
+.slide-image-shell::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 0;
+  height: 35%;
+  background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.4));
+}
 
 .slide-image {
   width: 100%;
-  height: 100%;
-  max-width: 100%;
-  max-height: 100%;
+  min-height: 32rem;
   object-fit: contain;
   object-position: center;
   pointer-events: none;
   user-select: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
   -webkit-user-drag: none;
-  -khtml-user-drag: none;
-  -moz-user-drag: none;
-  -o-user-drag: none;
 }
 
-.slide-overlay {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(0, 0, 0, 0.6);
-  padding: var(--spacing-sm) var(--spacing-md);
-  z-index: 3;
+.slide-copy {
+  padding: 1.5rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.slide-tagline {
   display: inline-block;
-  border-radius: 8px;
+  margin-bottom: 0.8rem;
+  color: var(--button-accent);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
 }
 
 .slide-title {
+  margin-bottom: 1rem;
   font-family: var(--font-heading);
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  text-align: center;
-  margin: 0;
+  font-size: clamp(2rem, 4vw, 3.1rem);
+  line-height: 1.02;
   background: var(--gradient-primary);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  text-shadow: 0 0 20px rgba(var(--theme-primary-rgb), 0.5);
+}
+
+.slide-description {
+  color: var(--text-secondary);
+  font-size: 1.02rem;
+  margin-bottom: 1.2rem;
+}
+
+.slide-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.slide-meta span {
+  padding: 0.45rem 0.75rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--text-secondary);
+  font-size: 0.88rem;
 }
 
 .carousel-controls {
   position: absolute;
-  top: 600px;
   left: 50%;
+  bottom: 0;
   transform: translateX(-50%);
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: var(--spacing-md);
-  z-index: 10;
-  margin-top: var(--spacing-sm);
+  gap: 1.25rem;
+  z-index: 3;
 }
 
 .carousel-button {
-  width: 50px;
-  height: 50px;
-  background: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(10px);
-  border: 2px solid var(--button-accent);
-  border-radius: 50%;
-  color: var(--button-accent);
-  cursor: pointer;
-  display: flex;
+  width: 3.2rem;
+  height: 3.2rem;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  transition: var(--transition-normal);
-  padding: 0;
-  flex-shrink: 0;
+  border-radius: 999px;
+  border: 1px solid rgba(var(--button-accent-rgb), 0.38);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--button-accent);
+  cursor: pointer;
+  transition: transform var(--transition-normal), background var(--transition-normal), box-shadow var(--transition-normal), border-color var(--transition-normal);
 }
 
 .carousel-button:hover {
-  background: var(--button-accent);
-  color: var(--bg-primary);
+  transform: translateY(-2px) scale(1.04);
+  background: rgba(var(--button-accent-rgb), 0.12);
   box-shadow: var(--glow-purple);
-  transform: scale(1.1);
-}
-
-.carousel-button:active {
-  transform: scale(0.95);
 }
 
 .carousel-button svg {
-  width: 28px;
-  height: 28px;
-  filter: drop-shadow(0 0 4px currentColor);
+  filter: drop-shadow(0 0 8px currentColor);
 }
 
 .carousel-indicators {
   display: flex;
-  justify-content: center;
   align-items: center;
-  gap: var(--spacing-xs);
+  gap: 0.5rem;
 }
 
 .indicator {
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  transition: var(--transition-normal);
+  width: 1.1rem;
+  height: 1.1rem;
   padding: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  border: none;
+  background: transparent;
   color: var(--button-accent);
+  cursor: pointer;
+  transition: transform var(--transition-normal), color var(--transition-normal);
 }
 
-.indicator:hover {
+.indicator:hover,
+.indicator.active {
   transform: scale(1.2);
 }
 
-.indicator:hover {
-  color: var(--button-accent);
-}
-
-.indicator:hover svg {
-  filter: drop-shadow(0 0 6px var(--button-accent));
-}
-
-.indicator.active {
-  transform: scale(1.3);
-  color: var(--button-accent);
-}
-
 .indicator.active svg {
-  filter: drop-shadow(0 0 8px var(--button-accent));
+  filter: drop-shadow(0 0 8px currentColor);
 }
 
-.indicator svg {
-  width: 16px;
-  height: 16px;
-  transition: var(--transition-normal);
-}
-
-/* Responsive Design */
 @media (max-width: 968px) {
-  .game-carousel {
-    min-height: 500px;
-  }
-  
   .carousel-wrapper {
-    height: 500px;
+    min-height: auto;
+    padding-bottom: 5rem;
   }
-  
-  .carousel-controls {
-    top: 500px;
+
+  .carousel-backdrop {
+    inset: 4rem 0.5rem 3.5rem;
   }
-  
-  .slide-title {
-    font-size: 2rem;
-  }
-  
-  .carousel-button {
-    width: 40px;
-    height: 40px;
-  }
-  
+
   .slide-content {
-    width: 75%;
-    max-width: 700px;
+    grid-template-columns: 1fr;
+    padding: 1.5rem 1.25rem;
   }
-  
+
+  .slide-image {
+    min-height: 22rem;
+  }
 }
 
 @media (max-width: 768px) {
-  .game-carousel {
-    min-height: 400px;
+  .slide-copy {
+    padding: 1rem;
   }
-  
-  .carousel-wrapper {
-    height: 400px;
-  }
-  
-  .carousel-controls {
-    top: 400px;
-  }
-  
-  .slide-title {
-    font-size: 1.5rem;
-  }
-  
-  .carousel-button {
-    width: 35px;
-    height: 35px;
-  }
-  
-  .carousel-button svg {
-    width: 20px;
-    height: 20px;
-  }
-  
-  .indicator svg {
-    width: 14px;
-    height: 14px;
-  }
-  
-  .slide-content {
-    width: 80%;
-    max-width: 600px;
-  }
-}
 
-@media (max-width: 480px) {
-  .game-carousel {
-    min-height: 300px;
+  .slide-image {
+    min-height: 18rem;
   }
-  
-  .carousel-wrapper {
-    height: 300px;
-  }
-  
-  .carousel-controls {
-    top: 300px;
-  }
-  
-  .slide-overlay {
-    padding: var(--spacing-sm) var(--spacing-sm);
-  }
-  
-  .slide-title {
-    font-size: 1.2rem;
-  }
-  
-  .slide-content {
-    width: 85%;
-    max-width: 500px;
+
+  .carousel-button {
+    width: 2.7rem;
+    height: 2.7rem;
   }
 }
 
