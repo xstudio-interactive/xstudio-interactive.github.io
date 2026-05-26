@@ -6,7 +6,7 @@ const Hero = () => {
     <section id="home" className="hero">
       <div className="hero-bg">
         <img
-          src="/images/hero 2.png"
+          src="/images/hero.png"
           alt=""
           className="hero-bg-image hero-bg-desktop"
           draggable="false"

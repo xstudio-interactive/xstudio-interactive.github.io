@@ -9,7 +9,7 @@ const FeaturedGame = () => {
           <div className="fg-poster" data-reveal="up" style={{ '--reveal-delay': '0.05s' }}>
             <div className="fg-poster-frame glass-effect" data-depth="0.14">
               <img
-                src="/images/poster_1.png"
+                src="/images/poster.png"
                 alt="Brainrot Survivor"
                 className="fg-poster-image"
                 draggable="false"
