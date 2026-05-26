@@ -3,7 +3,7 @@ import './styles/Portfolio.css'
 
 const socialLinks = [
   {
-    href: 'https://x.com/ShakesBEEstudio',
+    href: 'https://x.com/shakesbee_std',
     label: 'X',
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -12,7 +12,7 @@ const socialLinks = [
     ),
   },
   {
-    href: 'https://www.instagram.com/shakesbee_studio/',
+    href: 'https://www.instagram.com/shakesbee_std/',
     label: 'Instagram',
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -21,7 +21,7 @@ const socialLinks = [
     ),
   },
   {
-    href: 'https://www.tiktok.com/@shakesbeestudio',
+    href: 'https://www.tiktok.com/@shakesbee_std',
     label: 'TikTok',
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -30,7 +30,7 @@ const socialLinks = [
     ),
   },
   {
-    href: '#',
+    href: 'https://discord.gg/uXmgRktjJf',
     label: 'Discord',
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
